@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>诺亚方舟——再生人类的希望</title>
+    <link type="text/css" rel="stylesheet" href="../static/css&js/For_try.css">
+    <script
+        src="../static/css&js/For_try.js" rel="script" type="text/javascript">
+    </script>
+</head>
+{#<body onclick="Img_Operation()">#}
+<body>
+<div class="toolbar-container-left" onclick="Img_Operation()">
+    <ul>
+        <div class="dropdown">
+            <a href="#" class="dropbtn">概览</a>
+            <div class="dropdown-content">
+                <a href="{% url 'description' %}" target="_blank">诺亚方舟介绍</a>
+                <a href="{% url 'design' %}" target="_blank">设计理念</a>
+                <a href="#">目标</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="dropbtn">设计图</a>
+            <div class="dropdown-content">
+                <a href="#">3D图</a>
+                <a href="#">细节图</a>
+                <a href="https://www.zhihu.com/question/22986196/answer/24389028" target="_blank">总览</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="dropbtn" style="font-family: 华文楷体 serif">团队</a>
+            <div class="dropdown-content">
+                <a href="#">开发部</a>
+                <a href="#">公安部</a>
+                <a href="#">宣传部</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="dropbtn" style="position: absolute; right: 20px; color: #FF7070; font-family: 华文楷体 serif"><p onclick="PullImg()">联系我们</p></a>
+                <div id="dropdown-content-connect">
+{#                    <img src="../static/images/QR_code.jpg" alt="二维码" style="position: initial;width: 250px; height: 250px;">#}
+                </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="{% url 'Ark_Login' %}" class="dropbtn" target="_blank">个人中心</a>
+
+        </div>
+    </ul>
+</div>
+
+<div id="cat">
+  <h1>Noah's Ark——The hope of human regeneration</h1>
+<!--  <img src="Other/屏幕截图%202022-02-09%20153141.jpg" width="400" height="420" alt="The description of cat" >-->
+    <img src="../static/images/Yao2.png" width="420" height="420" alt="The description of cat" >
+    <img id="steve" src="../static/images/steve-jobs-3.png" width="400" height="420" alt="another">
+</div>
+<div id="dog">
+    <h2>Everyone should own the Noah's Ark of themselves</h2>
+    <h1 style="opacity: 0.01 ">                     *                            </h1>
+    <h1 style="opacity: 0.01 ">                     *                            </h1>
+    <h1 style="opacity: 0.01 ">                     *                            </h1>
+
+
+</div>
+<p class="Text_Free" style="text-align: center; font-size: 100px;
+      line-height: 1.9;
+      font-weight: 400;"><strong><em>Noah's Ark  Super AI</em></strong></p>
+<div>
+    <a id="hello" style="position: absolute;
+                         right: 20px;
+                         bottom: 100px;
+                         color: #6dbbf2;
+                         font-family: 华文楷体,serif" href="https://www.baidu.com" target="_blank">联系我们</a>
+</div>
+{#<marquee direction="up" behavior="scroll" scrollamount="1080" scrolldelay="10000" loop="-1" width="1080"  hspace="0" vspace="0">#}
+{#</marquee>#}
+
+<div>
+    <div id="picture">
+    <div class="banner">
+        <ul class="images">
+            <li class="active">
+                <img src="../static/images/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="../static/images/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="../static/images/3.jfif" alt="">
+            </li>
+<!--            <li>-->
+<!--                <img src="images/4.jpg" alt="">-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <img src="images/5.jpg" alt="">-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <img src="images/6.jpg" alt="">-->
+<!--            </li>-->
+        </ul>
+        <ul class="dots">
+            <li class="white">1</li>
+            <li>2</li>
+            <li>3</li>
+<!--            <li>4</li>-->
+<!--            <li>5</li>-->
+<!--            <li>6</li>-->
+        </ul>
+        <i id="left" class="fa">  < </i>
+        <i id="right" class="fa">  > </i>
+    </div>
+    </div>
+
+    <script>
+        var lisImg = document.querySelectorAll(".images li");
+        var lisDot = document.querySelectorAll(".dots li");
+        var banner = document.querySelector("div");
+
+        var left = document.getElementById("left");
+        var right = document.getElementById("right");
+
+        var timer;
+        var number = 0;
+
+        function show() {
+            for (var j = 0; j < lisDot.length; j++) {
+                lisDot[j].className = "";
+                lisImg[j].className = "";
+            }
+            lisDot[number].className = "white";
+            lisImg[number].className = "active";
+        }
+        show()
+
+        // 自动循环播放
+        // 往下轮播下一张
+        var next = function () {
+            number++;
+            if (number >= lisDot.length) {
+                number = 0;
+            }
+            show();
+        }
+        timer = setInterval(next, 3000);
+
+        // 往上轮播上一张
+        // function prev(){
+        //     timer = setInterval(function(){
+        //         number--;
+        //         if(number < 0){
+        //             number = lisDot.length - 1;
+        //         }
+        //         show();
+        //     }, 1000);
+        // }
+        // prev()
+
+        // 当鼠标放在图片上时，停止自动轮播，清除定时器
+        banner.onmousemove = function () {
+            clearInterval(timer);
+        }
+        // 当鼠标离开图片时，继续进行自动轮播
+        banner.onmouseleave = function () {
+            timer = setInterval(next, 3000);
+        }
+
+        // 滑点轮播
+        for (var i = 0; i < lisDot.length; i++) {
+            lisDot[i].index = i;
+            lisDot[i].onmousemove = function () {
+                // clearInterval(timer);
+                for (var k = 0; k < lisDot.length; k++) {
+                    lisDot[k].className = "";
+                    lisImg[k].className = "";
+                }
+                this.className = "white";
+                lisImg[this.index].className = "active";
+            }
+            // 鼠标离开当前滑点时，依然按照顺序轮播
+            lisDot[i].onmouseleave = function () {
+                number = this.index;
+                timer = setInterval(next, 3000);
+            }
+        }
+
+        // 左右键轮播效果
+        // 上一张
+        left.onclick = function () {
+            number--;
+            if (number < 0) {
+                number = lisDot.length - 1;
+            }
+            show();
+        }
+
+        // 下一张
+        right.onclick = function () {
+            number++;
+            if (number >= lisDot.length) {
+                number = 0;
+            }
+            show();
+        }
+
+    </script>
+</div>
+</body>
+</html>

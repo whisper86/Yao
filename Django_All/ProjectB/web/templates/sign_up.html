@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign up</title>
+    <link href="../static/Sign_Up/for_sign_up.css" type="text/css" rel="stylesheet">
+    <script src="../static/Sign_Up/for_sign_up.js" rel="script" type="text/javascript"></script>
+    <link href="../static/favicon3.ico" rel="shortcut icon" type="image/x-icon">
+
+</head>
+
+<body background="../static/for_login/School.png" style="background-repeat: repeat">
+    <div class="login-wrapper">
+        <div class="header">Sign up</div>
+        <div class="form-wrapper">
+             <form action="sign_up" method="post" style="padding-top: 30px">
+                 {% csrf_token %}
+                <label>
+                    <input type="text" name="Username" placeholder="username" class="input-item" id="username" value>
+                    <input type="password" name="Password" placeholder="password" class="input-item" id="password" value>
+                    <input type="text" name="password" placeholder="Please enter the verify code" class="input-item-verify_code" id="verify_code" value >
+                    <img src="../static/Sign_Up/code1.png" style="height: 30px; position: absolute; left: 260px; bottom: 130px" onclick="refresh()" alt="verify_code" id="code">
+                    <input  type="submit" class="btn" onclick="Sign_up()" value="Sign up" >
+                </label>
+             </form>
+        </div>
+    </div>
+</body>
+
+</html>

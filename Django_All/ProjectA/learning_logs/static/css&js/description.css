@@ -1,0 +1,14 @@
+body{
+    background: #8d95a2;
+}
+div#description{
+    text-align: center;
+    color: #6dbbf2;
+}
+img{
+   align-self: auto;
+    background-repeat: repeat-x;
+}
+div#description2 {
+    text-align: center;
+}

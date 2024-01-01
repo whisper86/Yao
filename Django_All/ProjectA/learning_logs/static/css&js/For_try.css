@@ -1,0 +1,219 @@
+div#cat, #dog{
+    font-family: Arial,"DengXian Light", sans-serif ;
+    text-align: center;
+    color: #6dbbf2;
+    padding: 20px 0 0 20px;
+    margin-right: auto;
+
+}
+body {
+    background-image: url("https://img.pantabang.top/zyjsq/background.png");
+    /*cursor: url("https://cdn.jsdelivr.net/gh/Tomotoes/images/blog/default.cur"), auto;*/
+    cursor: url("../Arrow.cur"), auto;
+}
+* {
+    box-sizing: border-box;
+}
+img {
+    cursor: url("../Hand2.cur"), auto;
+}
+img #steve {
+   opacity: 0.5;
+}
+/* div .dropdown {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FF7070;
+}
+
+ */
+h1, h2, p{
+    cursor: url("../IBeam.cur"), auto;
+}
+span {
+    /* 让弹出来的文字不被选中，影响操作体验 */
+    /*user-select: none;*/
+    font-family: KaiTi, sans-serif;
+    cursor: default;
+    font-size: 20px;
+    color: pink;
+    position: absolute;
+    transition: 1s;
+    z-index: 999;
+}
+
+/* 为每个链接设定样式 */
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+/* 鼠标放置链接时改变样式 */
+.dropbtn:hover
+{
+    background-color: #111;
+    color: red;
+}
+
+.dropdown {
+    display: contents;
+    font-family: 华文楷体 serif;
+
+
+}
+
+/* 下拉菜单设置样式 */
+.dropdown-content {
+    /* 隐藏菜单 */
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    /* 设置链接元素的最小宽度 */
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(12, 12, 12, 0.2);
+    overflow: auto;
+}
+.dropdown-content a {
+    display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.Special .dropbtn {
+    margin-right: auto;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    color: #FF7070;
+    font-family: 华文楷体 serif;
+    /*style="margin-right: auto; position: absolute; right: 20px; top: 16px; color: #FF7070"*/
+}
+
+* {
+     box-sizing: border-box;/*border-box 告诉浏览器去理解你设置的边框和内边距的值是包含在width内的。
+        也就是说，如果你将一个元素的width设为100px,那么这100px会包含其它的border和padding，
+        内容区的实际宽度会是width减去border + padding的计算值。大多数情况下这使得我们更容易的去设定一个元素的宽高。*/
+     padding: 0;
+     margin: 0;
+ }
+
+/*div #picture{*/
+/*    background-color: gray;*/
+/*}*/
+
+div .banner {
+    width: 1425px;
+    height:1000px;
+    /*margin: fill;*/
+    position: absolute;
+
+
+}
+
+ul .images{
+    list-style: none;
+}
+
+.images li {
+    position: absolute;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.images .active {
+    opacity: 1;
+}
+
+.images img {
+    width: 1425px;
+    height: 1000px;
+    cursor: pointer;
+}
+/*设置一排小圆点的位置*/
+.dots {
+    position: absolute;
+    bottom: 10px;
+    left: 500px;
+}
+/*设置每个小圆点的形状等*/
+.dots li {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: solid 2px #fff;
+    display: inline-block;
+    margin-right: 10px;
+    padding-left: 5px;
+    cursor: pointer;/*鼠标放在小圆点上，鼠标变成手指形状*/
+    transition: 0.6s;/*过渡效果*/
+}
+/*小圆点的变化*/
+.dots .white {
+    background-color: #fff;
+    box-shadow: 0 0 1px 5px rgba(0, 0, 0, 0.3)
+}
+
+/*设置左右按钮*/
+#left{
+    position: absolute;
+    bottom: 400px;
+    width: 30px;
+    height: 60px;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+}
+#right{
+    position: absolute;
+    bottom: 400px;
+    right: 0;
+    width: 30px;
+    height: 60px;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+}
+/*左右按钮的效果*/
+.fa{
+    color: white;
+    cursor: pointer;
+    width: 40px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    opacity: 0.3;
+}
+.fa:hover{
+    opacity: 0.6;
+}
+
+
+
+#dropdown-content-connect{
+    /* 隐藏菜单 */
+    display: initial;
+    position: absolute;
+    top: 35px;
+    left: 1000px;
+    background-color: pink;
+    /* 设置链接元素的最小宽度 */
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(12, 12, 12, 0.2);
+    overflow: auto;
+}
+
+image #QR_Code:hover

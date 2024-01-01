@@ -1,0 +1,56 @@
+
+<!-- saved from url=(0099)https://user.qzone.qq.com/proxy/domain/qzs.qq.com/ac/qzfl/release/resource/html/storage_helper.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>storage helper</title><!--<base href="//qzs.qq.com/">--><base href=".">
+	</head>
+	<body onload="init();">
+		<script type="text/javascript">
+			if(/\.qzone\.qq\.com$/.test(location.hostname)) {
+				document.domain = location.hostname;
+			} else {
+				document.domain="user.qzone.qq.com";
+			}
+
+			//创建数据库
+			function create(dbname, type){
+				if(type == "localStorage"){
+					return window.localStorage;
+				}
+				try {
+					/*
+					var el = document.createElement("div");
+					el.id = dbname+"_userData";
+					el.style.display = "none";
+					el.addBehavior("#default#userdata");
+					document.body.appendChild(el);
+					*/
+					var el = document.body; 
+					el.addBehavior("#default#userdata");
+					el.load(dbname);
+					return el;
+				} 
+				catch (ign) {
+					return false;
+				}
+			}
+
+			
+			function init(){
+				// if(location.hostname == 'user.qzone.qq.com') {
+				// 	document.domain="user.qzone.qq.com";
+				// } else {
+				// 	document.domain="user.qzone.qq.com";
+				// }
+				
+			    var tmp;
+				if((tmp = parent.QZFL.Storage)) {
+					tmp.ifrCallback();
+				}else if((tmp = parent.jQuery) && tmp.Storage){
+				    tmp.Storage.ifrCallback();
+				}
+			}
+		</script>
+	
+
+</body></html>

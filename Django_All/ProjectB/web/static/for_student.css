@@ -1,0 +1,49 @@
+body{
+   background-image: url("https://img.pantabang.top/zyjsq/background.png");
+}
+
+caption {
+   color: coral;
+   font-size: xx-large;
+}
+
+html {
+
+font-family: sans-serif;
+
+-ms-text-size-adjust: 100%;
+
+-webkit-text-size-adjust: 100%;
+
+}
+
+body {
+
+margin: 10px;
+
+}
+
+table {
+
+border-collapse: collapse;
+
+border-spacing: 0;
+
+}
+
+td,th {
+
+padding: 0;
+
+}
+
+
+table td {
+
+   width: 150px;
+   height: 50px;
+   text-align: center;
+   font-family: "楷体","楷体_GB2312";
+   color: antiquewhite;
+   font-size: x-large;
+}

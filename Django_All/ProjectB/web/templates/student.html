@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grades</title>
+    <link type="text/css" rel="stylesheet" href="../static/for_student.css">
+    <link href="../static/favicon3.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+<table border="2">
+<caption>Grades</caption>
+    <tr>
+        <td>名次</td>
+        <td>姓名</td>
+        <td>语文</td>
+        <td>数学</td>
+        <td>英语</td>
+        <td>化学</td>
+        <td>生物</td>
+        <td>物理</td>
+        <td>总分</td>
+    </tr>
+    {% for student in student_queryset %}
+        <tr>
+            <td >{{ student.id}}</td>
+            <td id="name">{{ student.Name}}</td>
+            <td id="other">{{ student.Chinese}}</td>
+            <td id="other">{{ student.Math }}</td>
+            <td id="other">{{ student.English }}</td>
+            <td id="other">{{ student.Chemistry }}</td>
+            <td id="other">{{ student.Biology }}</td>
+            <td id="other">{{ student.Physics }}</td>
+            <td id="other">{{ student.All_score }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+<p style="text-align: center; font-size: 50px; line-height: 1.9; font-family: '楷体','楷体_GB2312'; color: #6dbbf2"><strong><em>想要添加学生成绩信息请<a href="/register_view" target="_blank">点击</a>此处</em></strong></p>
+</body>
+</html>
+
+{#<strong><em>Let's appreciate the work of VR</em></strong>#}

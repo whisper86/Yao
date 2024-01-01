@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="../static/favicon3.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="../static/for_login/for_login.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" async src="../static/for_login/for_login.js" rel="script"></script>
+</head>
+<body background="../static/for_login/School.png">
+<div class="container">
+    <div class="announce">
+        <p>&emsp;&emsp;Welcome to</p>
+        <p>Student Grades Control System</p>
+        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;——By Yao</p>
+    </div>
+
+    <div class="login-wrapper">
+        <div class="header">Login</div>
+        <div class="form-wrapper">
+            <form method="post">
+                 {% csrf_token %}
+            <label>
+                <input type="text" name="username" placeholder="username" class="input-item" id="username" value>
+                <input type="password" name="password" placeholder="password" class="input-item" id="password" value>
+                <input type="submit" class="btn" onclick="login()" value="Login" >
+            </label>
+            </form>
+        </div>
+        <div class="msg">
+            Don't have account?
+            <a href="/sign_up">Sign up</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

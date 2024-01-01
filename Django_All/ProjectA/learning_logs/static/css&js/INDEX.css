@@ -1,0 +1,124 @@
+/*panoIndex css start*/
+.funBotTop {
+    position: relative;
+    padding-top: 34px;
+}
+
+.funBotMid {
+    font-size: 0;
+}
+
+.funBotMidItem {
+    display: inline-block;
+    position: relative;
+    width: 222px;
+    height: 236px;
+    background-size: 100%;
+}
+
+.funBotMidItem {
+    text-align: center;
+    vertical-align: top;
+    box-sizing: border-box;
+    padding: 6px;
+}
+
+.funBotMidroam {
+    padding-top: 12px;
+}
+
+.funBotLunRoomW {
+    width: 650px;
+    height: 390px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.funBotLunRoomW img {
+    width: 100%;
+    height: 100%;
+}
+
+.funBotBotRoom {
+    padding-top: 8px !important;
+}
+
+.funBotW {
+    text-align: center;
+    font-size: 0;
+    padding-top: 42px;
+}
+
+.funBotItem {
+    display: inline-block;
+    text-align: left;
+    width: 730px;
+    height: 783px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 60px rgba(89, 175, 246, 0.2);
+    opacity: 1;
+    border-radius: 16px;
+    box-sizing: border-box;
+    padding-left: 40px;
+    vertical-align: top;
+}
+
+.funBotL {
+    margin-right: 40px;
+}
+
+.funBotMidIn {
+    padding-top: 30px;
+}
+
+.funBotBotTitle {
+    font-size: 16px;
+    color: #000000;
+    padding-bottom: 15px;
+}
+
+.funBotBot {
+    padding-top: 36px;
+}
+
+.funBotLun {
+    position: relative;
+    width: 1080px;
+}
+
+.funBotLunItem {
+    display: inline-block;
+    width: 650px;
+    height: 800px;
+}
+
+.funBotLunIn {
+    width: 650px;
+}
+
+
+.funBotLunPage {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    height: 30px;
+}
+
+.funBotLunPage .swiper-pagination-bullet {
+    width: 22px;
+    height: 4px;
+    background: #fff;
+    border-radius: 0;
+    margin-right: 5px;
+    opacity: 1;
+}
+
+.funBotLunPage .swiper-pagination-bullet:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.funBotLunPage .swiper-pagination-bullet-active {
+    background: #FD8807;
+}

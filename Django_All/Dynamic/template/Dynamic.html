@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://user.qzone.qq.com/2890348601 -->
+<html lang="zh-cn" data-safair="0" class="skin-light pg-profile"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if IE]>
+<script type="text/javascript">
+    window.Aegis = null;// 待兼容
+</script>
+<![endif]-->
+<!--[if !(IE)]><!-->
+<script type="text/javascript">
+/**
+ * ===============================================
+ * @tencent/aegis-web-sdk@1.23.51 (c) 2020 ivweb.
+ * Author pumpkincai.
+ * Released under the MIT License.
+ * Thanks for supporting Aegis!
+ * ===============================================
+ **/
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self).Aegis=t()}(this,function(){"use strict";var h,e,a=(t.prototype.indexOf=function(e,t){for(var n=0;n<e.length;n++)if(e[n].callback===t)return n;return-1},t.prototype.on=function(e,t,n){if(void 0===n&&(n=0),this){var o=this.__EventsList[e];if(o||(this.__EventsList[e]=[],o=this.__EventsList[e]),-1!==this.indexOf(o,t))return this;var i={name:e,type:n||0,callback:t};return o.push(i),this}},t.prototype.one=function(e,t){this.on(e,t,1)},t.prototype.remove=function(e,t){if(this){var n,o=this.__EventsList[e];if(!o)return null;if(t)return o.length&&(n=this.indexOf(o,t),o.splice(n,1)),this;try{delete this.__EventsList[e]}catch(e){}return null}},t);function t(){var s=this;this.emit=function(e,t){if(s){var n,o=s.__EventsList[e];if(null!=o&&o.length){o=o.slice();for(var i=0;i<o.length;i++){n=o[i];try{var r=n.callback.apply(s,[t]);if(1===n.type&&s.remove(e,n.callback),!1===r)break}catch(e){throw e}}}return s}},this.__EventsList={}}function v(e){return(e=Array.isArray(e)?e:[e]).map(function(t,n){return Object.getOwnPropertyNames(t).map(function(e){return void 0===t[e]?"":o(e)+"["+n+"]="+o(t[e])}).join("&")}).join("&")+(e.length?"&count="+e.length:"")}function o(t){try{return encodeURIComponent(decodeURIComponent(t))}catch(e){return t}}function n(e,t){return"number"==typeof e||"string"==typeof e?e:t?h.string:h.number}function m(e,t){return"string"==typeof e?e.split("?")[t?1:0]||"":e}function y(e){return/^https/.test(e)}function r(){return void 0!==window.performance&&"function"==typeof(e=window.Performance)&&/native code/.test(e.toString())&&"function"==typeof performance.clearResourceTimings&&"function"==typeof performance.getEntriesByType&&"function"==typeof performance.now;var e}(e=h=h||{})[e.number=-1]="number",e.string="";var i=["application/octet-stream","application/xhtml+xml","application/xml","application/pdf","application/pkcs12","application/javascript","application/ecmascript","application/vnd.mspowerpoint","application/ogg","text/html","text/css","text/javascript","image","audio","video"];function w(t){return i.some(function(e){return-1!==t.indexOf(e)})}function _(e){try{return(JSON.stringify(e,(o=[],i=[],function(e,t){if(t instanceof Error)return"Error.message【 "+t.message+" 】;  Error.stack【 "+t.stack+" 】";if("object"==typeof t&&null!==t){var n=o.indexOf(t);if(-1!==n)return"[Circular "+i[n]+"]";o.push(t),i.push(e||"root")}return t}),4)||"undefined").replace(/"/gim,"")}catch(e){return"error happen when aegis stringify: \n "+e.message+" \n "+e.stack}var o,i}var b,s,u=["ret","retcode","code"],E=function(e,t){var n,o;try{"string"==typeof e&&(e=JSON.parse(e)),"function"==typeof(null===(n=null==t?void 0:t.ret)||void 0===n?void 0:n.join)&&(u=[].concat(null===(o=null==t?void 0:t.ret)||void 0===o?void 0:o.map(function(e){return e.toLowerCase()})));var i=Object.getOwnPropertyNames(e).filter(function(e){return-1!==u.indexOf(e.toLowerCase())});return i.length?""+e[i[0]]:"unknown"}catch(e){return"unknown"}},R=(l.prototype.sourceURL=function(){return this.data.responseURL},l.prototype.status=function(){return Number(this.data.status)},l.prototype.headers=function(){var e=this.data.getAllResponseHeaders().split("\n"),i={};return e.forEach(function(e){var t,n,o;e&&(n=(t=e.split(": "))[0],o=t[1].trim(),i[n]=o)}),i},l),p=(c.prototype.sourceURL=function(){return this.data.url},c.prototype.status=function(){return Number(this.data.status)},c.prototype.headers=function(){var n={};return this.data.headers.forEach(function(e,t){n[t]=e}),n},c);function c(e,t){this.type="fetch",this.data=e||{},this.data.response=t}function l(e){this.type="xhr",this.data=e}function f(n,o){var i,r=[];return function(e,t){if(r.push(e),o&&r.length>=o)return t(r.splice(0,r.length)),void(i&&clearTimeout(i));i&&clearTimeout(i),i=setTimeout(function(){i=null,t(r.splice(0,r.length))},n.delay||1e3)}}(s=b=b||{}).INFO_ALL="-1",s.API_RESPONSE="1",s.INFO="2",s.ERROR="4",s.PROMISE_ERROR="8",s.AJAX_ERROR="16",s.SCRIPT_ERROR="32",s.IMAGE_ERROR="64",s.CSS_ERROR="128",s.CONSOLE_ERROR="256",s.MEDIA_ERROR="512",s.RET_ERROR="1024",s.REPORT="2048",s.PV="4096";function d(e,t){return Array.isArray(e)?t(e.map(function(e){return{msg:"string"==typeof e.msg?e.msg:[].concat(e.msg).map(_).join(" "),level:e.level,trace:e.trace}})):t({msg:"string"==typeof e.msg?e.msg:_(e.msg),level:e.level,trace:e.trace})}var g=function(){};function O(n){if(!n||!n.reduce||!n.length)throw new TypeError("createPipeline need at least one function param");return 1===n.length?function(e,t){n[0](e,t||g)}:n.reduce(function(n,o){return function(e,t){return void 0===t&&(t=g),n(e,function(e){return null==o?void 0:o(e,t)})}})}var L=(I.prototype.init=function(e){this.setConfig(e);for(var t=0;t<I.installedPlugins.length;t++)try{I.installedPlugins[t].patch(this)}catch(e){this._sendSDKError(e)}this.lifeCycle.emit("onInited")},I.prototype.setConfig=function(e){Object.assign(this.config,e);var t=this.config,n=t.id,o=t.uin,i=t.version,r=this.bean.id!==n||this.bean.uin!==o;return this.bean.id=n||"",this.bean.uin=o||"",this.bean.version=i||"1.23.51",r&&this.lifeCycle.emit("onConfigChange",e),this.config},I.use=function(e){-1===I.installedPlugins.indexOf(e)&&e.__aegisPlugin&&I.installedPlugins.push(e)},I.prototype.info=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];this._normalLogPipeline({msg:e,level:b.INFO})},I.prototype.infoAll=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];this._normalLogPipeline({msg:e,level:b.INFO_ALL})},I.prototype.report=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];this._normalLogPipeline({msg:e,level:b.REPORT})},I.prototype._speedLogPipeline=function(e){throw new Error('You need to override "speedLogPipeline" method')},I.prototype.reportPv=function(e){var t,n=this;e&&(t=""+Object.getOwnPropertyNames(this.bean).filter(function(e){return"id"!==e}).map(function(e){return e+"="+n.bean[e]}).join("&"),this.send({url:this.config.url+"/"+e+"?"+t,addBean:!1}))},I.prototype.reportTime=function(e,t){"string"==typeof e?"number"==typeof t?this._submitCustomTime(e,t):console.warn("reportTime: second param must be number"):console.warn("reportTime: first param must be a string")},I.prototype.time=function(e){"string"==typeof e?this._timeMap[e]?console.warn("Timer "+e+" already exists"):this._timeMap[e]=Date.now():console.warn("time: first param must be a string")},I.prototype.timeEnd=function(e){"string"==typeof e?this._timeMap[e]?(this._submitCustomTime(e,Date.now()-this._timeMap[e]),delete this._timeMap[e]):console.warn("Timer "+e+" does not exist"):console.warn("timeEnd: first param must be a string")},I.prototype._submitCustomTime=function(e,t){this._customTimePipeline({name:e,duration:t})},I.prototype.extendBean=function(e,t){this.bean[e]=t},I.prototype.send=function(e,t,n){throw new Error('You need to override "send" method')},I.prototype._sendSDKError=function(e){this.send({url:"https://aegis.qq.com/collect?id=1085&msg[0]="+encodeURIComponent(_(e))+"&level[0]=2&from="+this.config.id+"&count=1&version="+this.config.id+"(1.23.51)",addBean:!1,method:"get"})},I.LOG_TYPE=b,I.installedPlugins=[],I),C=(A.prototype.patch=function(e){this._canUse(e)&&this._exist(e)&&(this._triggerInit(e),this._instances.push(e),this._triggerOnNewAegis(e))},A.prototype._walk=function(n){var o=this;this._instances.forEach(function(e){var t=o._canUse(e);t&&n(e,t)})},A.prototype._canUse=function(e){var t=this._getConfig(e);return!(!t||"object"!=typeof t)||!!t},A.prototype._getConfig=function(e){return e.config[this.name]},A.prototype._exist=function(e){return-1===this._instances.indexOf(e)},A.prototype._triggerInit=function(e){this._inited||(this._inited=!0,this._option.init&&this._option.init.call(this._option,this._getConfig(e)))},A.prototype._triggerOnNewAegis=function(e){this._option.onNewAegis&&this._option.onNewAegis.call(this._option,e,this._getConfig(e))},A),x=new C({name:"aid",aid:"",init:function(){try{var e=window.localStorage.getItem("AEGIS_ID");e||(e="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,function(e){var t=16*Math.random()|0;return("x"===e?t:3&t|8).toString(16)}),window.localStorage.setItem("AEGIS_ID",e)),this.aid=e}catch(e){}},onNewAegis:function(e){e.bean.aid=this.aid}}),S=(new C({name:"reportAssetSpeed"}),new C({name:"reportAssetSpeed",collectCur:0,ASSETS_INITIATOR_TYPE:["img","css","script","link","audio","video"],init:function(){var e=this;r()&&(this.collectSuccLog(),this.collectFailLog(),performance.onresourcetimingbufferfull=function(){e.collectCur=0,performance.clearResourceTimings()})},publish:function(t){this.$walk(function(e){e._speedLogPipeline(t)})},collectSuccLog:function(){function n(e){for(var t=0,n=e.length;t<n;t++){var o=e[t];-1!==i.ASSETS_INITIATOR_TYPE.indexOf(o.initiatorType)&&-1===o.name.indexOf("cdn-go.cn/aegis/aegis-sdk")&&i.publish(i.generateLog(o))}}var i=this;"function"==typeof window.PerformanceObserver?(n(performance.getEntriesByType("resource")),new window.PerformanceObserver(function(e){n(e.getEntries())}).observe({entryTypes:["resource"]})):setInterval(function(){var e=performance.getEntriesByType("resource"),t=e.slice(i.collectCur);i.collectCur=e.length,n(t)},3e3)},collectFailLog:function(){var i=this;window.document.addEventListener("error",function(e){var t,n,o;e&&e.target&&e.srcElement&&((n=(t=e.target||e.srcElement).src||t.href)&&(o={url:m(n),status:400,method:"get",type:"static",isHttps:y(n),urlQuery:m(n,!0),x5ContentType:h.string,x5HttpStatusCode:h.number,x5ImgDecodeStatus:h.number,x5ErrorCode:h.number,x5LoadFromLocalCache:h.number,x5ContentLength:h.number,domainLookup:h.number,connectTime:h.number},i.publish(o)))},!0)},generateLog:function(e){return{url:m(e.name),method:"get",duration:Number(e.duration.toFixed(2)),status:200,type:"static",isHttps:y(e.name),urlQuery:m(e.name,!0),x5ContentType:n(e.x5ContentType,!0),x5HttpStatusCode:n(e.x5HttpStatusCode),x5ImgDecodeStatus:n(e.x5ImgDecodeStatus),x5ErrorCode:n(e.x5ErrorCode),x5LoadFromLocalCache:void 0===e.x5LoadFromLocalCache?h.number:0|e.x5LoadFromLocalCache,x5ContentLength:e.encodedBodySize||n(e.x5ContentLength),domainLookup:n(e.domainLookupEnd-e.domainLookupStart),connectTime:n(e.connectEnd-e.connectStart)}}})),T=function(e,t){return(T=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n])})(e,t)};function A(e){this.__aegisPlugin=!0,this.name="",this._instances=[],this._inited=!1,e.$walk=this._walk.bind(this),e.$getConfig=this._getConfig.bind(this),this._option=e,this.name=e.name}function I(e){var i,r,t,n,o,s=this;this.config={version:0,delay:1500,onError:!0,repeat:5,random:1,aid:!0,device:!0,pagePerformance:!0,url:"https://aegis.qq.com/collect",speedUrl:"https://aegis.qq.com/speed",customTimeUrl:"https://aegis.qq.com/speed/custom",whiteListUrl:"https://aegis.qq.com/aegis/whitelist",performanceUrl:"https://aegis.qq.com/speed/performance",listenOnerror:!0},this.lifeCycle=new a,this.bean={},this._normalLogPipeline=O([f(this.config,5),d,(t=this.config,n={},o="number"==typeof t.repeat?t.repeat:5,function(e,t){t(e.filter(function(e){return e.level!==b.ERROR&&e.level!==b.PROMISE_ERROR&&e.level!==b.AJAX_ERROR&&e.level!==b.SCRIPT_ERROR&&e.level!==b.IMAGE_ERROR&&e.level!==b.CSS_ERROR&&e.level!==b.MEDIA_ERROR||(n[e.msg]=n[e.msg]||0,!(++n[e.msg]>o))}))}),(i=this.lifeCycle.emit,r=this.config,function(e,t){var n=r.logCreated;if("function"!=typeof n)return i("beforeWrite",e),t(e);var o=e.filter(function(e){return!1!==n(e)});return i("beforeWrite",o),t(o)}),function(e){var o=!1,i=!1;e.lifeCycle.on("onConfigChange",function(){setTimeout(function(){e.send({url:e.config.whiteListUrl||""},function(e){i=!0;try{0===(e=JSON.parse(e)||{}).retcode&&(o=e.result.is_in_white_list)}catch(e){}},function(){i=!0})},50)});var r=[],s=!1;return function(e,t){var n;!s&&e.some(function(e){return e.level===b.ERROR})&&(s=!0),o||s?t(e.concat(r.splice(0)).map(function(e){return e.level===b.INFO_ALL&&(e.level=b.INFO),e})):(n=e.filter(function(e){return e.level!==b.INFO&&e.level!==b.API_RESPONSE?(e.level===b.INFO_ALL&&(e.level=b.INFO),!0):void(i||(r.push(e),200<=r.length&&(r.length=200)))})).length&&t(n)}}(this),function(e,t){var n=JSON.parse(JSON.stringify(e));s.lifeCycle.emit("beforeReport",n);var o=s.config.beforeReport;if("function"==typeof o&&(e=e.filter(function(e){return!1!==o(e)})),e.length)return t(e)},function(e){s.send({url:s.config.url||"",data:v(e),method:"post",contentType:"application/x-www-form-urlencoded"},function(){var t=s.config.onReport;"function"==typeof t&&e.forEach(function(e){t(e)})})}]),this._timeMap={},this._customTimePipeline=O([f(this.config,5),function(e){s.send({url:s.config.customTimeUrl+"?payload="+encodeURIComponent(JSON.stringify({custom:e}))})}])}function P(e,t){function n(){this.constructor=e}T(e,t),e.prototype=null===t?Object.create(t):(n.prototype=t.prototype,new n)}var N=function(){return(N=Object.assign||function(e){for(var t,n=1,o=arguments.length;n<o;n++)for(var i in t=arguments[n])Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i]);return e}).apply(this,arguments)};var k=!1,j=[];function q(e){var n,o;j.push(e),!k&&window.XMLHttpRequest&&(k=!0,n=window.XMLHttpRequest.prototype.send,o=window.XMLHttpRequest.prototype.open,window.XMLHttpRequest.prototype.open=function(){if(this.__aegisMethod=arguments[0],this.__aegisUrl=arguments[1],!this.__sendByAegis)for(var e=0;e<j.length;e++){var t=j[e];try{"function"==typeof t.open&&t.open(this)}catch(e){}}return o.apply(this,arguments)},window.XMLHttpRequest.prototype.send=function(){if(!this.__sendByAegis)for(var e=0;e<j.length;e++){var t=j[e];try{"function"==typeof t.send&&t.send(this,arguments[0])}catch(e){}}return n.apply(this,arguments)})}var F=!1,D=[];function H(e){var n;D.push(e),!F&&window.fetch&&(F=!0,n=window.fetch,window.fetch=function(o,i){void 0===i&&(i={});for(var e=0;e<D.length;e++){var t=D[e];try{"function"==typeof t.beforeFetch&&t.beforeFetch(o,i)}catch(o){}}var r=Date.now();return n(o,i).then(function(e){for(var t=0;t<D.length;t++){var n=D[t];try{"function"==typeof n.then&&n.then(e,Date.now()-r,o,i)}catch(e){}}return e}).catch(function(e){for(var t=0;t<D.length;t++){var n=D[t];try{"function"==typeof n.catch&&n.catch(e,Date.now()-r,o,i)}catch(e){}}throw e})})}new C({name:"reportApiSpeed"});var U,M,B,X,J,$,Q=new C({name:"reportApiSpeed",override:!1,onNewAegis:function(e,t){this.override||(this.override=!0,this.overrideFetch(e.config),this.overrideXhr(e.config))},overrideFetch:function(f){var d=this;H({then:function(a,e,u,c){var l={url:a.url,isHttps:y(a.url),method:(null==c?void 0:c.method)||"get",duration:e,type:"fetch",status:a.status},t=a.headers?a.headers.get("content-type"):"";a.ok&&"string"==typeof t&&w(t)?Object.assign(l,{type:"static",urlQuery:m(a.url,!0),x5ContentType:h.string,x5HttpStatusCode:h.number,x5ImgDecodeStatus:h.number,x5ErrorCode:h.number,x5LoadFromLocalCache:h.number,x5ContentLength:h.number,domainLookup:h.number,connectTime:h.number}):a.clone().text().then(function(e){var t;d.publishNormalLog({msg:u+" "+e,level:b.API_RESPONSE}),l.payload=new p(a,e);var n,o,i,r,s;("function"==typeof(null===(t=null==f?void 0:f.api)||void 0===t?void 0:t.retCodeHandler)?(s=(n=f.api.retCodeHandler(e,a.url)).code,o=n.isErr,l.ret=s,o):(i=E(e,f.api),l.ret=i,r=(r=f.api&&f.api.errCode)&&[].concat(r),s=(s=f.api&&f.api.code)&&[].concat(s),r&&-1!==r.indexOf(i)||s&&-1===s.indexOf(i)||!r&&!s&&"0"!==i&&"unknown"!==i))&&d.publishNormalLog({msg:"request url: "+u+" \n request: "+_(c)+" \n response: "+e,level:b.RET_ERROR})}),d.publishSpeed(l)},catch:function(e,t,n,o){var i={url:n,isHttps:y(n),method:(null==o?void 0:o.method)||"get",duration:t,type:"fetch",status:600};d.publishSpeed(i)}})},overrideXhr:function(p){var g=this;q({send:function(c,l){var f,d=Date.now();c.addEventListener("loadend",function(){var e,t=this.__aegisUrl;if(t){f=Date.now()-d;var n={url:t,isHttps:y(t),status:this.status,method:this.__aegisMethod||"get",type:"fetch",duration:f,payload:new R(this)},o=this.getResponseHeader("content-type");if(400<=this.status||"string"!=typeof o||!w(o))try{g.publishNormalLog({msg:"req url: "+t+" \nres time: "+f+" \nreq param: "+_(l)+" \nres data: "+this.response,level:b.API_RESPONSE,trace:c.__aegisTjgTrace});var i,r,s,a,u;("function"==typeof(null===(e=null==p?void 0:p.api)||void 0===e?void 0:e.retCodeHandler)?(u=(i=p.api.retCodeHandler(this.response,t)).code,r=i.isErr,n.ret=u,r):(s=E(this.response,p.api),n.ret=s,a=(a=p.api&&p.api.errCode)&&[].concat(a),u=(u=p.api&&p.api.code)&&[].concat(u),a&&-1!==a.indexOf(s)||u&&-1===u.indexOf(s)||!a&&!u&&"0"!==s&&"unknown"!==s))&&g.publishNormalLog({msg:"request url: "+t+" \n request: "+_(l)+" \n response: "+this.response,level:b.RET_ERROR})}catch(e){n.ret="unknown"}else Object.assign(n,{type:"static",urlQuery:m(t,!0),x5ContentType:h.string,x5HttpStatusCode:h.number,x5ImgDecodeStatus:h.number,x5ErrorCode:h.number,x5LoadFromLocalCache:h.number,x5ContentLength:h.number,domainLookup:h.number,connectTime:h.number});g.publishSpeed(n)}})}})},publishSpeed:function(n){var o=this;n.url=m(n.url),this.$walk(function(e){var t=o.$getConfig(e);"fetch"===n.type&&t&&"function"==typeof t.urlHandler?e._speedLogPipeline(N(N({},n),{url:encodeURIComponent(t.urlHandler(n.url,n.payload))})):e._speedLogPipeline(n)})},publishNormalLog:function(t){this.$walk(function(e){e._normalLogPipeline(t)})}});($=U=U||{})[$.unknown=100]="unknown",$[$.wifi=1]="wifi",$[$.net2g=2]="net2g",$[$.net3g=3]="net3g",$[$.net4g=4]="net4g",$[$.net5g=5]="net5g",$[$.net6g=6]="net6g",(J=M=M||{})[J.android=1]="android",J[J.ios=2]="ios",J[J.other=100]="other",(X=B=B||{})[X.oldX5=1]="oldX5",X[X.newX5=2]="newX5",X[X.other=3]="other";var V=navigator.userAgent,W=new C({name:"device",onNewAegis:function(e){e.config.reportAssetSpeed&&(e.extendBean("platform",this.getPlatform()),e.extendBean("x5Type",this.getX5Type()),e.extendBean("netType",U.unknown),this.refreshNetworkTypeToBean(e))},getPlatform:function(){var e=M.other;return/\bAndroid\s*([^;]+)/.test(V)?e=M.android:/\b(iPad|iPhone|iPod)\b.*? OS ([\d_]+)/.test(V)&&(e=M.ios),e},getX5Type:function(){var e,t=B.other;return 0<=V.toLowerCase().indexOf("tbs")&&(t=null!=(e=V.match(/tbs\/([\d.]+)/i))&&e[1]&&36541<=parseInt(e[1],10)?B.newX5:B.oldX5),t},refreshNetworkTypeToBean:function(t){var n=this,e=t.config,o=G;"function"==typeof e.getNetworkType&&(o=e.getNetworkType),o(function(e){U[e]||(e=U.unknown),t.extendBean("netType",e),n.NetworkRefreshTimer=setTimeout(function(){n.refreshNetworkTypeToBean(t),clearTimeout(n.NetworkRefreshTimer)},3e3)})}});function G(e){var t;e((t=navigator.connection&&navigator.connection.type?navigator.connection.type:"unknown",0<=(t=String(t).toLowerCase()).indexOf("2g")?U.net2g:0<=t.indexOf("3g")?U.net3g:0<=t.indexOf("4g")?U.net4g:0<=t.indexOf("5g")?U.net5g:0<=t.indexOf("6g")?U.net6g:0<=t.indexOf("wifi")?U.wifi:U.unknown))}new C({name:"onError"});var Y,K=new C({name:"onError",init:function(){this.startListen()},startListen:function(){var r=this,n=window.onerror;window.onerror=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];r.publishErrorLog({msg:(_(e[0])||"")+" @ ("+(_(e[1])||"")+":"+(e[2]||0)+":"+(e[3]||0)+")",level:b.ERROR}),null==n||n.call.apply(n,function(){for(var e=0,t=0,n=arguments.length;t<n;t++)e+=arguments[t].length;for(var o=Array(e),i=0,t=0;t<n;t++)for(var r=arguments[t],s=0,a=r.length;s<a;s++,i++)o[i]=r[s];return o}([window],e))},window.addEventListener("unhandledrejection",function(e){var t=e&&_(e.reason);r.publishErrorLog({msg:"PROMISE_ERROR: "+t,level:b.PROMISE_ERROR})}),window.document.addEventListener("error",function(e){if(e&&e.target&&e.srcElement){var t=e.target||e.srcElement,n=t.src||t.href,o=t.tagName;if(n&&-1===n.indexOf("aegis.qq.com")&&o){var i={msg:o+" load fail: "+n,level:b.INFO};switch(o.toLowerCase()){case"script":i.level=b.SCRIPT_ERROR;break;case"link":i.level=b.CSS_ERROR;break;case"audio":case"video":i.level=b.MEDIA_ERROR;break;default:return}r.publishErrorLog(i)}}},!0);var o=this;q({send:function(e,t){e.addEventListener("loadend",function(){var e="";this.__aegisTimeout?e="timeout":this.status<=0?e="failed":400<=this.status&&(e="error"),e&&o.publishErrorLog({msg:"AJAX_ERROR: request "+e+". status: "+this.status+". \n \n                    url: "+this.__aegisUrl+". \n \n                    request body: "+_(t)+".",level:b.AJAX_ERROR})}),e.addEventListener("timeout",function(){e.__aegisTimeout=!0})}})},publishErrorLog:function(t){this.$walk(function(e){e._normalLogPipeline(t)})}}),z=(new C({name:"pagePerformance"}),new C({name:"pagePerformance",onNewAegis:function(o){var i=this;if(r())if(Y)this.publish(Y,o);else try{this.getFirstScreenTiming(function(e){var t=performance.timing,n=t.loadEventStart-t.domInteractive;n<0&&(n=1070),Y={dnsLookup:t.domainLookupEnd-t.domainLookupStart,tcp:t.connectEnd-t.connectStart,ssl:0===t.secureConnectionStart?0:t.requestStart-t.secureConnectionStart,ttfb:t.responseStart-t.requestStart,contentDownload:t.responseEnd-t.responseStart,domParse:t.domInteractive-t.domLoading,resourceDownload:n,firstScreenTiming:Math.floor(e)},i.publish(Y,o)})}catch(o){}},publish:function(e,t){var n,o=[];for(n in e)o.push(n+"="+e[n]);var i=this.$getConfig(t),r=-1===t.config.performanceUrl.indexOf("?")?"?":"&";"function"==typeof i.urlHandler?t.send({url:t.config.performanceUrl+r+o.join("&")+"&from="+(encodeURIComponent(i.urlHandler())||window.location.href),beanFilter:["from"]}):t.send({url:t.config.performanceUrl+r+o.join("&")})},getFirstScreenTiming:function(c){var n=["script","style","link","br"],l=[],f=this,d=new MutationObserver(function(e){var t={roots:[],rootsDomNum:[],time:performance.now()};e.forEach(function(e){e&&e.addedNodes&&e.addedNodes.forEach&&e.addedNodes.forEach(function(e){1!==e.nodeType||-1!==n.indexOf(e.nodeName.toLocaleLowerCase())||f.isEleInArray(e,t.roots)||(t.roots.push(e),t.rootsDomNum.push(f.walkAndCount(e)||0))})}),t.roots.length&&l.push(t)});d.observe(document,{childList:!0,subtree:!0}),setTimeout(function(){d.disconnect();var n=0,o=0,i=!1;l.forEach(function(e){for(var t=0;t<e.roots.length;t++)e.rootsDomNum[t]>n&&f.isInFirstScreen(e.roots[t])&&(n=e.rootsDomNum[t],o=e.time)});for(var e,t,r=document.querySelectorAll(".fp-check"),s=[],a=0;a<r.length;a++){"img"===r[a].tagName.toLowerCase()&&""!==r[a].src?s.push(r[a].src):(e=window.getComputedStyle(r[a]),(t=/url\([\'\"](.+)[\'\"]\)/gi.exec(e.backgroundImage))&&2===t.length&&s.push(t[1]))}var u=0;window.performance.getEntriesByType("resource").some(function(n){return s.some(function(e,t){if(e===n.name)return n.responseEnd>u&&(u=n.responseEnd),(n.fetchStart<o||n.startTime<o)&&n.responseEnd>o&&(i=!0,o=n.responseEnd),s.splice(t,1),!0}),0===s.length}),0===o&&(o=u),null==c||c(i?o:o+25)},3e3)},isEleInArray:function(e,t){return!(!e||e===document.documentElement)&&(-1!==t.indexOf(e)||this.isEleInArray(e.parentElement,t))},isInFirstScreen:function(e){if(!e||!e.getBoundingClientRect)return!1;var t=e.getBoundingClientRect(),n=window.innerHeight,o=window.innerWidth;return 0<=t.left&&t.left<o&&0<=t.top&&t.top<n},walkAndCount:function(e){var t=0;if(e&&1===e.nodeType){t++;var n=e.children;if(null!=n&&n.length)for(var o=0;o<n.length;o++)t+=this.walkAndCount(n[o])}return t}})),Z=(new C({name:"tjg"}),!1),ee=new C({name:"tjg",onNewAegis:function(e){this.setTjgHeader(e)},setTjgHeader:function(e){Z||(Z=!0,this.overrideFetch(e),this.overrideXHR(e))},overrideFetch:function(n){var o=this;H({beforeFetch:function(e,t){o.isSameOrigin(e)&&(t.headers?t.headers instanceof Headers&&t.headers.append("X-Tjg-Json-Span-Context",o.getTjgHeaderValue(n)):t.headers=new Headers({"X-Tjg-Json-Span-Context":o.getTjgHeaderValue(n)}))}})},overrideXHR:function(o){var i=this;q({send:function(e,t){var n;i.isSameOrigin(e.__aegisUrl)&&(n=i.getTjgHeaderValue(o),e.__aegisTjgTrace=n,e.setRequestHeader("X-Tjg-Json-Span-Context",n))}})},getTjgHeaderValue:function(e){return window.btoa&&window.btoa(JSON.stringify({ids:{trace_id:{high:this.rand53(),low:this.rand53()},span_id:this.rand53(),parent_id:0,flag:2},baggages:{aegis_session_id:e._sessionID}}))},rand53:function(){return parseInt(new Array(53).fill(1).map(function(){return.5<Math.random()?1:0}).join(""),2)},isSameOrigin:function(e){var t=this,n=!1;if(this.$walk(function(e){!0===t.$getConfig(e).crossOrigin&&(n=!0)}),n)return!0;var o=document.createElement("a");return o.href=e,location.origin===o.origin}});function te(t){if(t.payload){var n={};return Object.keys(t).forEach(function(e){"payload"!==e&&(n[e]=t[e])}),n}return t}Object.assign||Object.defineProperty(Object,"assign",{enumerable:!1,configurable:!0,writable:!0,value:function(e){if(null==e)throw new TypeError("Cannot convert first argument to object");for(var t=Object(e),n=1;n<arguments.length;n++){var o=arguments[n];if(null!=o){o=Object(o);for(var i=Object.keys(Object(o)),r=0,s=i.length;r<s;r++){var a=i[r],u=Object.getOwnPropertyDescriptor(o,a);null!=u&&u.enumerable&&(t[a]=o[a])}}}return t}});var ne,oe=0,ie=(P(re,ne=L),re.prototype._bean=function(t){var n=this;return void 0===t&&(t=[]),""+Object.getOwnPropertyNames(this.bean).filter(function(e){return-1===t.indexOf(e)}).map(function(e){return e+"="+n.bean[e]}).join("&")},re.prototype.send=function(e,t,n){var o,i,r,s=this;e&&"string"==typeof e.url&&""!==e.url&&this.bean.id&&(this._requesting?this._requestQueue.push({options:e,success:t,fail:n}):(this._requesting=!0,o=e.url,!1!==e.addBean&&(o=o+(-1===o.indexOf("?")?"?":"&")+this._bean(e.beanFilter)),i=e.method||"get",(r=new XMLHttpRequest).__sendByAegis=!0,r.addEventListener("readystatechange",function(){var e;4===r.readyState&&(s._requesting=!1,(e=s._requestQueue.shift())&&s.send(e.options,e.success,e.fail),400<=r.status?null==n||n(r.response):null==t||t(r.response))}),"get"===i.toLocaleLowerCase()?(r.open("get",function(e,n){if("string"!=typeof e)return"";if("object"==typeof n&&n){var t=Object.getOwnPropertyNames(n).map(function(e){var t=n[e];return e+"="+("string"==typeof t?encodeURIComponent(t):encodeURIComponent(JSON.stringify(t)))}).join("&").replace(/eval/gi,"evaI");return e+(-1===e.indexOf("?")?"?":"&")+t}return e}(o,e.data)),r.send()):(r.open("post",o),e.contentType&&r.setRequestHeader("Content-Type",e.contentType),"string"==typeof e.data&&(e.data=e.data.replace(/eval/gi,"evaI")),r.send(e.data))))},re.useAsyncPlugin=function(s,e){void 0===e&&(e={});var t=e.exportsConstructor,a=void 0===t?"aegis-plugin-"+oe++:t,n=e.onAegisInit,u=void 0===n?function(){}:n,o=e.onAegisInitAndPluginLoaded,c=void 0===o?function(){}:o;if("string"!=typeof s)throw new TypeError("useAsyncPlugin first param must be string");if("function"!=typeof u||"function"!=typeof c)throw new TypeError("onAegisInit and onAegisInitAndPluginLoaded must be function");this.use(new C({name:"asyncPlugin",onNewAegis:function(n){try{u(n),re._asyncPlugin[s]?c(n,window[re._asyncPlugin[s]]):(e=s,t=a,o=function(e){var t;e||(re._asyncPlugin[s]=a,t=window[a],c(n,t))},i=document.createElement("script"),r=document.head,"function"==typeof t&&(o=t,t=""),i.src=e,i.setAttribute("name",t),i.name=t,i.async=!0,i.onreadystatechange=function(){i.readyState&&"loaded"!==i.readyState&&"complete"!==i.readyState||("function"==typeof o&&o(!1),setTimeout(function(){r.contains(i)&&r.removeChild(i)}))},i.onload=i.onreadystatechange,i.onerror=function(){"function"==typeof o&&o(!0),setTimeout(function(){r.contains(i)&&r.removeChild(i)})},r.appendChild(i))}catch(e){console.log("error on below is caused by "+s+"："),console.error(e)}var e,t,o,i,r}}))},re.prototype.uploadLogs=function(e,t){void 0===e&&(e={}),void 0===t&&(t={}),this.lifeCycle.emit("uploadLogs",e,t)},re.__version__="1.23.51",re._sessionID="session-"+Date.now(),re._asyncPlugin={},re.urls={aegisCollect:"https://aegis.qq.com/collect",flog:"https://cdn-go.cn/vasdev/web_webpersistance_v2/v1.5.3/flog.core.min.js",shadowLog:""},re);function re(e){var o,i,s=ne.call(this,e)||this;s._requestQueue=[],s._requesting=!1,s._speedLogPipeline=O([(i={},function(e,t){var n;Array.isArray(e)?(n=e.filter(function(e){var t=!i[e.url];return i[e.url]=!0,t})).length&&t(n):(i[e.url]||t(e),i[e.url]=!0)}),f(s.config),(o=s,function(t,n){G(function(e){o.extendBean("netType",e),n(t)})}),function(e,t){s.lifeCycle.emit("beforeReportSpeed",e);var n=s.config.beforeReportSpeed;if("function"==typeof n&&(e=e.filter(function(e){var t=!1!==n(e);return"fetch"===e.type&&void 0===e.ret&&e.payload&&(e.ret=E(e.payload.data.response,s.config.api)),t})),e.length)return t(e)},function(e){var t,n,o,i,r;s.send({url:""+s.config.speedUrl,method:"post",data:(t=e,n=s.bean,i={fetch:[],static:[]},r=new FormData,Array.isArray(t)?t.forEach(function(e){var t=te(e);i[e.type].push(t)}):(o=te(t),i[t.type].push(o)),r.append("payload",JSON.stringify(N({duration:i},n))),r)})}]),e.asyncPlugin=!0;try{e.uin=e.uin||parseInt((document.cookie.match(/\buin=\D+(\d*)/)||[])[1],10)||parseInt((document.cookie.match(/\bilive_uin=\D*(\d+)/)||[])[1],10)||"",s.init(e),s.extendBean("sessionId",re._sessionID),s.extendBean("from",encodeURIComponent(e.pageUrl||location.href)),s.extendBean("referer",document.referrer)}catch(e){console.warn(e),console.log("%c以上错误发生在初始化 Aegis 的过程中，将会影响您正常使用 Aegis，\n建议您联系 aegis-helper，进行反馈，感谢您的支持。","color: red"),s._sendSDKError(e)}return s}new C({name:"shadowLog"});var se=new C({name:"shadowLog",onNewAegis:function(e){function n(e){if(u&&c){var o=a.id,i=a.uin,r=ie.urls.aegisCollect;try{var t=(P(n,s=c),n.prototype.init=function(e){var t={dbConfig:{name:e.namespace},lookupUrl:r+"/shadowLogAuto?id="+o+"&uin="+i,uploadUrl:r+"/shadowLog",preservedDay:7,id:o,uin:i,sessionId:ie._sessionID},n=new u(t);return this.flog=n,s.prototype.init.call(this,e)},n.prototype.postMessage=function(e){var t=e.type,n=e.data;"write"===t&&this.flog.add(n)},n.prototype.report=function(){this.flog.uploadLogs()},new n(a.shadowLog));e.lifeCycle.emit("onShadowLogInit",t)}catch(e){console.log(e)}}function n(e){return s.call(this,e)||this}var s}var t,a,u,c,o;t=ie.urls.shadowLog,a=e.config,c=u=null,o=a.shadowLog.pluginUrl||t,ie.useAsyncPlugin(ie.urls.flog,{exportsConstructor:"Flog",onAegisInitAndPluginLoaded:function(e,t){u=t,n(e)}}),ie.useAsyncPlugin(o,{exportsConstructor:"ShadowLogAegisPlugin",onAegisInitAndPluginLoaded:function(e,t){c=t,n(e)}})}});new C({name:"offlineLog"});var ae=new C({name:"offlineLog",onNewAegis:function(e){function d(e){h=h.concat(e)}function p(e,t){void 0===e&&(e={}),void 0===t&&(t={}),m={conds:e,params:t}}var t,g,h,m;t=ie.urls.flog,g=e.config,h=[],m=null,ie.useAsyncPlugin(t,{exportsConstructor:"Flog",onAegisInit:function(e){e.lifeCycle.on("beforeWrite",d),e.lifeCycle.on("uploadLogs",p)},onAegisInitAndPluginLoaded:function(t,e){var n=g.dbConfig,o=void 0===n?{}:n,i=g.url,r=void 0===i?ie.urls.aegisCollect:i,s=g.offlineLogExp,a=void 0===s?3:s,u=g.id,c=g.uin;t.lifeCycle.remove("beforeWrite",d),t.lifeCycle.remove("uploadLogs",p);var l=Object.assign({lookupUrl:r+"/offlineAuto?id="+u+"&uin="+c,preservedDay:a,id:u,uin:c},o,{sessionId:ie._sessionID});try{var f=new e(l);h.forEach(function(e){f.add(N(N({},e),{level:b.INFO_ALL?b.INFO:e.level}))}),t.lifeCycle.on("beforeWrite",function(e){void 0===e&&(e=[]),e.forEach(function(e){f.add(N(N({},e),{level:b.INFO_ALL?b.INFO:e.level}))})}),t.lifeCycle.on("uploadLogs",function(e,t){void 0===e&&(e={}),void 0===t&&(t={});var n=Object.assign({id:g.id,uin:g.uin},e);f.uploadLogs(n,t)}),t.lifeCycle.on("onConfigChange",function(e){f.setConfig(e)}),f.on("PERREVENT",function(e){t.send({data:v({msg:_(e),level:b.INFO}),contentType:"application/x-www-form-urlencoded",method:"post",addBean:!1,url:g.url+"?id=893&sessionId="+ie._sessionID+"&uin="+g.uin+"&from="+g.id+"&count=1&version=1.23.51"})}),m&&(t.lifeCycle.emit("uploadLogs",m.conds,m.params),m=null),t.flog=f}catch(t){console.log(t)}}})}}),ue=(new C({name:"spa"}),new C({name:"spa",init:function(){history.pushState=this.wr("pushState")||history.pushState,history.replaceState=this.wr("replaceState")||history.replaceState,this.onPageChange()},onPageChange:function(){var t=this;window.addEventListener("hashchange",function(e){t.sendPv()}),window.addEventListener("replaceState",function(){t.sendPv()}),window.addEventListener("pushState",function(){t.sendPv()})},wr:function(n){var o=history[n];return!("function"!=typeof o||!/native code/.test(o.toString()))&&function(){var e=o.apply(this,arguments),t=new Event(n);return window.dispatchEvent(t),e}},sendPv:function(){this.$walk(function(e){e.send({url:e.config.whiteListUrl+"?from="+encodeURIComponent(location.href),beanFilter:["from"]})})}}));return new C({name:"ie"}),ie.use(K),ie.use(Q),ie.use(S),ie.use(z),ie.use(x),ie.use(ee),ie.use(W),ie.use(ae),ie.use(se),ie.use(ue),ie});
+
+</script>
+<!--<![endif]-->
+
+<script type="text/javascript">
+(function(){
+
+  if(!window.Aegis){
+    return
+  }
+
+  function getCookie(n){var r = new RegExp("(?:^|;+|\\s+)" + n + "=([^;]*)"),m = document.cookie.match(r);return (!m?"":m[1]);}
+
+  var DEFAULT_UID = '10000';
+  var aegisUid = DEFAULT_UID;
+  var offlineLog = true;
+  try {
+    aegisUid = getCookie('p_uin') || DEFAULT_UID;
+  } catch(err) {}
+
+  if(aegisUid === DEFAULT_UID){
+    // 没有生成uid，不用上报了，没意义	
+    return;
+  }
+
+  if(!window.Promise){
+    offlineLog = false
+  }
+  console.log('aegisUid: ', aegisUid)
+  var aegisOptions ={
+      id: 'RiaWqsnTHOaqiNeiQn',
+      uin: aegisUid,
+      offlineLog: offlineLog,
+      reportApiSpeed: true, // 接口测速
+      reportAssetSpeed: true
+  }
+  console.log('aegisOptions:', aegisOptions)
+  window.g_aegis = new Aegis(aegisOptions)
+})();
+
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=//qzs.qq.com/qzone/v6/troubleshooter/noscript.html" /></noscript>
+
+
+<title>- [http://2890348601.qzone.qq.com]</title>
+<meta name="keywords" content="QQ空间,黄钻,免费装扮,开心农场,QQ农场,QQ牧场">
+
+
+
+	<meta name="description" content="我热情有限 你好自为之">
+
+<link rel="apple-touch-icon" href="https://qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-ipad-retina.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-iphone-retina.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://qzonestyle.gtimg.cn/qzone/v8/index/touch-icon-ipad-retina.png">
+<link rel="icon" sizes="any" mask="" href="https://qzonestyle.gtimg.cn/qzone/v8/img/Qzone.svg">
+<meta name="theme-color" content="#FFC028">
+
+
+<script type="text/javascript">
+    
+    (function() {
+        function getBrowser() {
+          if((!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0) {
+            return 'Opera'
+          }
+
+          if(typeof InstallTrigger !== 'undefined') {
+            return 'Firefox'
+          }
+
+          if(/constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification))) {
+            return 'Safari'
+          }
+
+          var isIE = /*@cc_on!@*/false || !!document.documentMode;
+          if(isIE) {
+            return 'IE'
+          }
+
+          if(!isIE && !!window.StyleMedia) {
+            return 'Edge';
+          }
+
+          var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+          if(isChrome) {
+            return 'Chrome';
+          }
+
+          if(isChrome && (navigator.userAgent.indexOf("Edg") != -1)) {
+            return 'EdgeChromium'
+          }
+        }
+
+        var hasFlash = false;
+        var flashcode = 0;
+        try {
+            hasFlash = Boolean(new ActiveXObject('ShockwaveFlash.ShockwaveFlash'));
+        } catch(exception) {
+            hasFlash = ('undefined' != typeof navigator.mimeTypes['application/x-shockwave-flash']);
+        }
+
+        flashcode = hasFlash ? 1 : 0;
+
+        (new Image()).src = 'https://report.qqweb.qq.com/report/007' + 
+          '?app=' + encodeURIComponent('flash') + 
+          '&url=' + getBrowser() + 
+          '&type=0' + 
+          '&httpcode=0' + 
+          '&retcode=' + flashcode + 
+          '&cost=0'
+
+        var whileList = {
+            'qzs.qq.com': 1,
+            'astro.fashion.qq.com': 1,
+            'gameapp.qq.com': 1,
+            'fn.qq.com': 1
+        };
+        
+        function getHostname(href) {
+            var a = document.createElement('a');
+            a.href = href;
+            
+            return a.hostname;
+        }
+        
+        function deleteAllCookies() {
+            var cookies = document.cookie.split('; ');
+            for (var c = 0; c < cookies.length; c++) {
+                var d = window.location.hostname.split('.');
+                while (d.length > 0) {
+                    var cookieBase = encodeURIComponent(cookies[c].split(';')[0].split('=')[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+                    var p = location.pathname.split('/');
+                    document.cookie = cookieBase + '/';
+                    while (p.length > 0) {
+                        document.cookie = cookieBase + p.join('/');
+                        p.pop();
+                    };
+                    d.shift();
+                }
+            }
+
+            window.g_qzonetoken = ''
+        }
+        
+        if(window.opener && document.referrer) {
+            var refererName = getHostname(document.referrer);
+            var refererSplit = refererName.split('.');
+            var refererDomain2 = refererSplit.slice(-2).join('.');
+            var refererDomain3 = refererSplit.slice(-3).join('.');
+            var refererDomain4 = refererSplit.slice(-4).join('.');
+            
+            var openerHost
+            var openerSplit
+            var openerDomain2
+            var openerDomain3
+            var openerDomain4
+            
+            var domain = document.domain
+            
+            document.domain = 'qq.com'
+           
+            try {
+                openerHost = window.opener.location.host
+                openerSplit = openerHost.split('.');
+                openerDomain2 = openerSplit.slice(-2).join('.');
+                openerDomain3 = openerSplit.slice(-3).join('.');
+                openerDomain4 = openerSplit.slice(-3).join('.');
+            } catch (error) {
+                openerHost = ''
+            }
+            
+            document.domain = domain
+            
+            if(refererDomain2 === 'qq.com' && refererDomain3 !== 'qzone.qq.com') {
+                // referer
+                if((whileList[refererDomain3] === 1 || whileList[refererDomain4] === 1)) {
+                    console.log('whileList opener');
+                } else {
+                    deleteAllCookies();
+                }
+            } else if(openerHost) {
+                // opener
+                if(openerDomain2 === 'qq.com' && openerDomain3 !== 'qzone.qq.com') {
+                    if((whileList[openerDomain3] === 1 || whileList[openerDomain4] === 1)) {
+                        console.log('whileList opener');
+                    } else {
+                        deleteAllCookies();
+                    }
+                }
+            }
+        }
+    })()
+</script>
+
+<script type="text/javascript">
+	window.diyitems_1_url = ''
+	
+		window.g_cdn_proto = 'https:'
+	
+
+	
+    	var g_domain = "qq.com";
+    
+
+    //灰度降域(IE,FF,SAFARI从二级域名设到三级域名不报错，但是会无效)
+    
+
+window.g_iframeUser = true
+
+    try {
+        document.domain = location.hostname;
+    } catch(e) {}
+
+    window.g_isFrameWorkTestEnv = "0";
+    window.g_point0=Date.now(); 
+    var _s_=new Date(),
+	g_T={},
+	siDomain="qzonestyle.gtimg.cn",
+	imgcacheDomain="qzs."+g_domain,
+	
+	g_iUin=2890348601,
+	g_iLoginUin=3079593805;
+	
+	
+
+g_T.fwp=[_s_];
+
+
+//引入配置文件
+
+window.g_dms = {
+            'u.qzone.qq.com' : 1,
+            'base.s2.qzone.qq.com' : 1,
+            'base.s8.qzone.qq.com' : 1,
+            'base.qzone.qq.com' : 1,
+            'r.qzone.qq.com' : 1,
+            'rsh.qzone.qq.com' : 1,
+            'ic2.cnc.qzone.qq.com' : 1,
+            'ic2.edu.qzone.qq.com':1,
+            'ic2.qzone.qq.com':1,
+            'ic2.s1.qzone.qq.com':1,
+            'ic2.s11.qzone.qq.com' : 1,
+            'ic2.s12.qzone.qq.com':1,
+            'ic2.s2.qzone.qq.com' : 1,
+            'ic2.s21.qzone.qq.com' : 1,
+            'ic2.s5.qzone.qq.com':1,
+            'ic2.s51.qzone.qq.com':1,
+            'ic2.s6.qzone.qq.com':1,
+            'ic2.s7.qzone.qq.com':1,
+            'ic2.s8.qzone.qq.com' : 1,
+            'ic2.qzone.qq.com' : 1,
+            'xalist.photo.qzone.qq.com' :1,
+            'hzalist.photo.qzone.qq.com' :1,
+            'alist.photo.qzone.qq.com' :1,
+            'shalist.photo.qzone.qq.com' :1,
+            'plist.photo.qzone.qq.com':1,
+            'xaplist.photo.qzone.qq.com':1,
+            'hzplist.photo.qzone.qq.com':1,
+            'gzplist.photo.qzone.qq.com':1,
+            'shplist.photo.qzone.qq.com':1,
+            'photo.qzone.qq.com':1,
+            'xa.photo.qzone.qq.com':1,
+            'hz.photo.qzone.qq.com':1,
+            'gz.photo.qzone.qq.com':1,
+            'shanghai.photo.qzone.qq.com':1,
+            'app.photo.qzone.qq.com':1,
+            'b.qzone.qq.com':1,
+            'b1.cnc.qzone.qq.com':1,
+            'b1.edu.qzone.qq.com':1,
+            'b1.qzone.qq.com':1,
+            'b11.cnc.qzone.qq.com':1,
+            'b11.edu.qzone.qq.com':1,
+            'b11.qzone.qq.com':1,
+            'b1.ctc.qzone.qq.com':1,
+            'b11.ctc.qzone.qq.com':1,
+            'b.ctc.qzone.qq.com':1,
+            'b.edu.qzone.qq.com':1,
+            'fav.qzone.qq.com' : 1,
+            'sns.qzone.qq.com' : 1,
+            'm.qzone.qq.com' : 1,
+            'snsapp.qzone.qq.com' : 1,
+            'taotao.qzone.qq.com' : 1,
+            'w.qzone.qq.com' : 1,
+            'g.qzone.qq.com' : 1
+        };
+ 
+ 
+window.g_sdms = {
+    'taotao.qq.com' : 1,
+    'taotao.qzone.qq.com' : 1,
+    'b.qzone.qq.com' : 1,
+    'pageapp.qzone.qq.com' : 1,
+    'b11.qzone.qq.com' : 1,
+    'b1.qzone.qq.com' : 1,
+    'br.qzone.qq.com' : 1,
+    'm.qzone.qq.com' : 1,
+    'base.qzone.qq.com' : 1,
+    'w.qzone.qq.com' : 1,
+    'g.qzone.qq.com' : 1,
+    'r.qzone.qq.com' : 1,
+    'ic2.qzone.qq.com' : 1,
+    'boss.qzone.qq.com' : 1,
+    'mall.qzone.qq.com' : 1,
+    'statistic.qzone.qq.com' : 1,
+    'fav.qzone.qq.com' : 1,
+    'snsapp.qzone.qq.com' : 1,
+    'vip.qzone.qq.com' : 1,
+    'route.store.qq.com' : 1,
+            'drift.qzone.qq.com' : 1,
+            'p1.qzone.qq.com' : 1,
+            'p2.qzone.qq.com' : 1,
+            'xalist.photo.qzone.qq.com' :1,
+            'hzalist.photo.qzone.qq.com' :1,
+            'alist.photo.qzone.qq.com' :1,
+            'shalist.photo.qzone.qq.com' :1,
+            'plist.photo.qzone.qq.com':1,
+            'xaplist.photo.qzone.qq.com':1,
+            'hzplist.photo.qzone.qq.com':1,
+            'gzplist.photo.qzone.qq.com':1,
+            'shplist.photo.qzone.qq.com':1,
+            'photo.qzone.qq.com':1,
+            'xa.photo.qzone.qq.com':1,
+            'hz.photo.qzone.qq.com':1,
+            'gz.photo.qzone.qq.com':1,
+            'shanghai.photo.qzone.qq.com':1,
+            'tj.photo.qzone.qq.com':1,
+            'app.photo.qzone.qq.com':1,
+            'memo.qq.com' : 1,
+            'analy.qq.com' : 1,
+            'analy.qzone.qq.com' : 1,
+            'page.qq.com' : 1,
+            'rsh.qzone.qq.com' : 1,
+            'search.qzone.qq.com' : 1,
+            'flower.qzone.qq.com' : 1,
+            'sz.ic2.qzone.qq.com' : 1,//通过qqtips到PC空间时，ic2域名统一走深圳
+            'up.photo.qq.com' : 1
+};
+
+window.g_cgidomain = location.host.replace('.qzone.qq.com','') || 'h5';
+
+
+
+    window.g_proto = 'https:';
+
+
+
+
+
+document.namespaces&&document.namespaces.add&&(document.namespaces.add('qz', location.protocol + '//qzone.qq.com/'),document.namespaces.add('x', location.protocol+'//qzone.qq.com/'));
+
+
+	
+
+
+
+
+window.g_isGrayRelease = true;
+    
+
+
+window.g_isGrayFlashNavi = true
+
+
+
+    
+
+    
+    window.g_iframeDescend = true
+
+
+
+    
+
+
+window.g_isgraynamecard = true
+
+
+
+
+
+</script>
+
+
+
+
+
+	
+	
+
+<link href="./static/35.css" rel="stylesheet">
+
+
+
+	
+		<link href="./static/profile-v9.css" rel="stylesheet">
+	
+	
+	
+		<link rel="stylesheet" type="text/css" href="./static/dress-expired-tips.css">
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		<style id="mainJSBg" type="text/css">
+				
+			.background-container{
+				background-repeat:no-repeat;
+				
+				background-position:center top;
+				
+				background-attachment:scroll;
+				
+				background-image:url(//i.gtimg.cn/qzone/space_item/orig/2/94786_top.jpg);
+			}
+			
+			
+				
+				.bg-body{
+					background-image:url(//i.gtimg.cn/qzone/space_item/orig/2/94786_bg.jpg); background-repeat:repeat;}
+			
+			
+			
+				
+				.layout-nav{background-image: url(//i.gtimg.cn/qzone/space_item/orig/2/94786_menu_bg.png);_background-image: url(//i.gtimg.cn/qzone/space_item/orig/2/94786_menu_bg_ie6.png);border: none;}
+				
+				
+				.layout-background{background-image:url(//i.gtimg.cn/qzone/space_item/orig/2/94786_bg1.png); background-repeat:repeat;}
+				
+				
+				
+					
+				
+			
+		</style>
+	
+
+
+
+<style id="mainJSTitleBar" type="text/css">
+	.layout-head-inner {
+		height:250px;
+		
+		
+		
+		}
+</style>
+
+
+
+
+
+<style type="text/css">
+
+</style>
+<style type="text/css" id="dynamicStyle">
+.ownermode{display:none;}
+.clientmode{display:;}
+.editmode{display:none;}
+.customoff{display:;}
+.alphamode{display:none;}
+</style>
+
+
+
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS news feed" href="http://feeds.qzone.qq.com/cgi-bin/cgi_rss_out?uin=2890348601">
+
+
+
+	<link rel="Shortcut Icon" href="https://qzonestyle.gtimg.cn/aoi/img/logo/favicon.ico?max_age=31536000" type="image/x-icon">
+
+
+
+	<!--[if IE]><base href="//qzs.qq.com/"></base><![endif]-->
+	<!--[if !(IE)]><!--><link charset="utf-8" rel="stylesheet" href="./static/ui-dialog.css"><link charset="utf-8" rel="stylesheet" href="./static/c_vip_hintbar_v2.css"><link charset="utf-8" rel="stylesheet" href="./static/qz_vip_tip_v2.css"><link charset="utf-8" rel="stylesheet" href="./static/dialog-vip-tip.css"><!--<base href="//qzs.qq.com/">--><base href="."><!--<![endif]-->
+
+
+
+
+<!--[if IE]>
+<script type="text/javascript">
+    function toAbsURL(s) { 
+     var l = location, h, p, f, i; 
+     if (/^\w+:/.test(s)) { 
+       return s; 
+     } 
+     h = l.protocol + '//' + l.host + (l.port!=''?(':' + l.port):''); 
+     if (s.indexOf('/') == 0) { 
+       return h + s; 
+     } 
+     p = l.pathname.replace(/\/[^\/]*$/, ''); 
+     f = s.match(/\.\.\//g); 
+     if (f) { 
+       s = s.substring(f.length * 3); 
+       for (i = f.length; i--;) { 
+         p = p.substring(0, p.lastIndexOf('/')); 
+       } 
+     } 
+     return h + p + '/' + s; 
+   }
+
+
+    var base = document.getElementsByTagName('base')[0];
+    base.href = toAbsURL(base.href);
+</script>
+<![endif]-->
+<script type="text/javascript">
+    // jserror上报
+    var uinArray = /uin=o0*(\S+);/.exec(document.cookie || '');
+    var pathArray = /^\/[^\/]+?\/[^\/]+/.exec(location.pathname || '');
+
+    var qua = '',
+        apn = 'WIFI',
+        uin = uinArray && uinArray[1];;
+
+    var collector = [],
+        collectorTime = 2000,//2000ms时间间隔内的请求合并上报
+        collectorTimer;
+    window.reportHaboGlobal = function(code, appid, command) {
+        // 兼容hybrid需要自动补前缀的老逻辑
+        command = command || '';
+        if (command[0] === '/') {
+            command = 'hybrid' + command + (pathArray && pathArray[0]);;
+        }
+
+        var data = {
+            releaseversion: qua,
+            apn: apn,
+            touin: uin,
+            key: 'appid,commandid,resultcode' //标记分组上报的key顺序
+        };
+        collector.push([appid || '1000361', command, code]);
+        var url = location.protocol === 'https:' ? 'https://h5.qzone.qq.com/wspeed.qq.com/w.cgi' : 'http://wspeed.qq.com/w.cgi';
+
+        collectorTimer && clearTimeout(collectorTimer);
+        collectorTimer = setTimeout(report, collectorTime);
+        function report() {
+            var params = [];
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    params.push(key + '=' + encodeURIComponent(data[key]));
+                }
+            }
+            //遍历合并上报的数组
+            if (collector && collector.length) {
+                var i = 0;
+                while (collector.length) {
+                    //太长就下次上报
+                    if (params.join('&').length > 1000) {
+                        break;
+                    }
+                    var c = collector.shift();
+                    //appid,commandid,resultcode
+                    params.push([i + 1, 1].join('_') + '=' + c[0]);
+                    params.push([i + 1, 2].join('_') + '=' + c[1]);
+                    params.push([i + 1, 3].join('_') + '=' + c[2]);
+                    i++;
+                }
+            }
+            params.push('rv=' + Math.random());
+            new Image().src = url + '?' + params.join('&');
+
+            //队列太长未上报完的1秒后再上报
+            i > 0 && collector.length && setTimeout(report, 1000);
+        }
+    };
+    var toUrlParam = function(data) {
+        var arr = [];
+        for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+                if(data[key] !== '' && data[key] !== undefined) {
+                    arr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+                }
+            }
+        }
+        return arr.join('&');
+    };
+    var send = function(data, callback, onTimeout) {
+        try {
+            // 设置超时
+            onTimeout && setTimeout(function() {
+                callback = null;
+                onTimeout && onTimeout();
+            }, 3000);
+            data = toUrlParam(data);
+            var url = '//h5.qzone.qq.com/log/post/script/error/' + command;
+            var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : {};
+            if ('withCredentials' in xhr) {
+                xhr.open('post', url, true);
+                xhr.withCredentials = true;
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var o = JSON.parse(xhr.responseText);
+                        onTimeout = null;
+                        callback && callback(o);
+                    }
+                };
+                try{xhr.send(data);}catch(e){};
+            } else if ('XDomainRequest' in window) {
+                var xdr = new XDomainRequest();
+                xdr.open('post', url);
+                xdr.onload = function() {
+                    var o;
+                    window.JSON ? (o = JSON.parse(xdr.responseText)) : eval('o = ' + xdr.responseText);
+                    onTimeout = null;
+                    callback && callback(o);
+                };
+                setTimeout(function() {
+                    try{xdr.send(data);}catch(e){};
+                }, 0);
+            }
+        } catch(e) {}
+    };
+
+    var appid = '1000416',
+        maxJsErrorCount = parseInt(''),
+        maxJsErrorCount = isNaN(maxJsErrorCount) ? 5 : maxJsErrorCount,
+        jsErrorCount = 0,
+        command = 'hybrid/pcweb',
+        reportHabo = 1,
+        queue = [],
+        isReporting = false,
+        hasReportPv = false;
+    var report = function() {
+        var data = queue.shift();
+        if (!data) {
+            isReporting = false;
+            return;
+        }
+        isReporting = true;
+        data.reportHabo = reportHabo;
+        reportHabo = 0;
+        send(data, function(o) {
+            if (o && o.code == 0 && o.data && o.data.result != 1) {
+                // 错误被忽略，还原上报habo标记
+                reportHabo = data.reportHabo;
+            }
+            // 延时1s上报下一个错误
+            setTimeout(report, 1000);
+        }, function() {
+            // 请求超时了，继续上报下一个到罗盘，habo就当报过了
+            report();
+        });
+    };
+    window.reportJsError = function(data) {
+        reportPv();
+        if (jsErrorCount++ >= maxJsErrorCount) {return;}
+        queue.push(data);
+        !isReporting && report();
+    };
+    var filterError = function(data) {
+        if(data.stack.indexOf('SyntaxError: Unexpected token') > -1) {
+            return true;
+        }
+        if(data.scriptUrl.indexOf('videoPlayer') > -1) {
+            return true;
+        }
+        if(data.scriptUrl.indexOf('app_engine') > -1) {
+            return true;
+        }
+        if(data.scriptUrl.indexOf('namecardv2') > -1) {
+            return true;
+        }
+        if(data.scriptUrl.indexOf('toolbar/core.js') > -1) {
+            return true;
+        }
+        if(data.scriptUrl.indexOf('/gdt/') > -1) {
+            return true;
+        }
+        if(data.lineNumber == 0) {
+            return true;
+        }
+
+        return false;
+    };
+    var onError = function(event) {
+        var data = {
+            appid: appid,
+            error: event.message,
+            stack: event.error && event.error.stack || '',
+            url: location.href,
+            scriptUrl: event.filename,
+            lineNumber: event.lineno,
+            columnNumber: event.colno
+        };
+        var fn = window.beforeJsErrorReport;
+        if (typeof fn === 'function' && false === fn(data)) {
+            return;
+        }
+        if(filterError(data)) {
+            return;
+        }
+        window.reportJsError(data);
+    };
+    var reportPv = function() {
+        if (hasReportPv) {return;}
+        // 上报PV为哈勃成功
+        window.reportHaboGlobal && reportHaboGlobal(0, appid, command);
+        hasReportPv = true;
+    };
+    if (window.addEventListener) {
+        window.addEventListener('error', onError);
+        window.addEventListener('load', reportPv);
+        window.iframeOnLoad = function() {
+            var appCanvasFrame = document.getElementsByClassName('app_canvas_frame');
+            if(appCanvasFrame.length > 0) {
+                appCanvasFrame[0].contentWindow.onerror = onError;
+            }
+        }
+    } else if (window.attachEvent) {
+        window.attachEvent('onerror', onError);
+        window.attachEvent('onload', reportPv);
+    } else {
+        window.onerror = onError;
+        setTimeout(reportPv, 3000);
+    }
+    window.listenError = true;
+</script><link rev="stylesheet" rel="stylesheet" type="text/css" media="screen" href="./static/qz-tips-box.css"><link rev="stylesheet" rel="stylesheet" type="text/css" media="screen" href="./static/qz_smart_search.css"></head>
+
+
+
+
+    
+    
+
+
+    
+
+
+<body id="QZ_Body" class="os-winxp index_default bg-body mode-theme mode_bg_opacity100" style="">
+
+
+
+
+    <div class="top-fix-bar">
+	<div class="top-fix-inner">
+        <div class="top-fix-container" id="QZ_Toolbar_Container">
+            <div class="top-fix-wrap">
+                
+                <a class="logo" href="https://user.qzone.qq.com/3079593805/" title="QQ空间">QQ空间</a>
+                
+                <ul class="top-nav">
+                    <li class="nav-list" id="tb_index_li">
+                        <div class="nav-list-inner">
+                            <a href="https://user.qzone.qq.com/2890348601/main" class="homepage-link a-link"><i class="ui-icon icon-homepage"></i><span>他的主页</span><i class="drop-down-arrow"></i></a>
+                        </div>
+                         
+                        <div class="nav-drop-down" id="tb_menu_panel" style="display:none;">
+                            <div class="side-area">
+                                <div class="homepage-link">
+                                    <a class="link-icon" href="https://user.qzone.qq.com/2890348601/main"><i class="icon-homepage"></i></a>
+                                    <a class="link-text" href="https://user.qzone.qq.com/2890348601/main">主页</a>
+                                </div>
+                            </div>
+                            <div class="main-area">
+                                <div class="main-application">
+                                    <ul class="main-application-list clearfix" id="tb_menu_list">
+                                        <li class="menu_item_2">
+                                            <a href="javascript:;"><i class="icon-blog"></i></a>
+                                            <a class="app-name">日志</a>
+                                        </li>
+                                        <li class="menu_item_4">
+                                            <a href="javascript:;"><i class="icon-album"></i></a>
+                                            <a class="app-name">相册</a>
+                                        </li>
+                                        <li class="menu_item_311">
+                                            <a href="javascript:;"><i class="icon-say"></i></a>
+                                            <a class="app-name">说说</a>
+                                        </li>
+                                        <li class="menu_item_202">
+                                            <a href="javascript:;"><i class="icon-share"></i></a>
+                                            <a class="app-name">分享</a>
+                                        </li>
+                                        <li class="menu_item_847">
+                                            <a href="javascript:;"><i class="icon-video"></i></a>
+                                            <a class="app-name">视频</a>
+                                        </li>
+                                        <li class="menu_item_305">
+                                            <a href="javascript:;"><i class="icon-music"></i></a>
+                                            <a class="app-name">音乐</a>
+                                        </li>
+                                        <li class="menu_item_334">
+                                            <a href="javascript:;"><i class="icon-message-book"></i></a>
+                                            <a class="app-name">留言板</a>
+                                        </li>
+                                        <li class="menu_item_1">
+                                            <a href="javascript:;"><i class="icon-personal"></i></a>
+                                            <a class="app-name">个人档</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-list" id="tb_index_ownerfeeds">
+                        <div class="nav-list-inner">
+                            <a href="javascript:;" id="aOwnerFeeds"><i class="ui-icon icon-feeds"></i><span>他的动态</span></a>
+                        </div>
+                    </li>
+                    
+                        <li class="nav-list" id="tb_index_friendship">
+                            <div class="nav-list-inner">
+                                <a href="javascript:;" id="aFriendship"><i class="ui-icon icon-friendship"></i><span>亲密度 41</span></a>
+                            </div>
+                        </li>
+                    
+                </ul>
+
+
+                
+                <div class="user-info">
+                    
+                    <a class="user-home" href="https://user.qzone.qq.com/3079593805/main">
+                        <img class="user-avatar" src="./static/30" alt="您的头像">
+                        <span class="user-name textoverflow">许垚</span>
+                    </a>
+					
+					
+					<a id="tb_logout" class="logout" href="javascript:;">[退出]</a>
+					
+                  
+                    <div id="tb_setting_li" class="user-setting">
+                        <i id="tb_setting_i" class="drop-down-arrow"></i>
+                        <div class="user-drop-down" id="tb_setting_panel" style="display:none;">
+                            <b class="white-line"></b>
+                            <div class="drop-down-setting">
+                                <a type="info" href="javascript:;">修改资料</a>
+                                <a type="dress" href="javascript:;">主页排版</a>
+                                <a type="set" href="javascript:;">空间设置</a>
+                                <a type="auth" href="javascript:;">权限设置</a>
+                            </div>
+                            
+                                <a target="_blank" class="online-service" href="http://crm2.qq.com/page/portalpage/wpa.php?uin=40012345&amp;f=1&amp;ty=1&amp;ap=000011:400879:|m:12|f:Gkj1" id="aHelpCenter">在线客服</a>
+                            
+                        </div>
+                    </div>
+                    <a href="http://pay.qq.com/ipay/index.shtml?ch=self&amp;aid=zone.tbarshuang&amp;c=xxjzgw,xxjzghh" id="tb_vip_li" target="_blank" class="vip-setting" title="点击到支付中心续费黄钻"><i class="ui-icon icon-vip"></i></a>
+                    
+                </div>
+                
+
+                <b class="divide-line"></b>
+                
+                <a class="back-to-icenter" href="https://user.qzone.qq.com/3079593805/infocenter">返回个人中心</a>
+                <b class="divide-line"></b>
+                
+
+                
+                <!-- 顶部搜索框 默认放出 2014-04-22 markqin -->
+                <div class="top-search">
+                    <div class="search-box">
+                        <input class="search-input" type="text" placeholder="用户/应用/动态"><!--搜索框默认态-->
+                        <a href="javascript:;" class="search-button"><i class="ui-icon icon-search"></i></a>
+                    </div>
+                    <div class="search-drop-down" id="search_smart_panel_navigation_bar" style="display:none">
+                        <div id="search_smart_search_loading" class="waiting-box" style="display:none">
+                            <img src="./static/loading2.gif" alt="等待图标">
+                        </div>
+                        <div id="search_smart_search_list">
+                            <div class="result-box r-modle j-default-result-list" style="display:none">
+                                <a href="https://user.qzone.qq.com/3079593805/infocenter?qz_referrer=special&amp;clickReport=searchSpecial" class="result-list">
+                                    <div class="avatar"><i class="ui-icon icon-ts-special"></i></div>
+                                    <div class="result-details">
+                                        <p class="info">特别关心</p>
+                                    </div>
+                                </a>
+                                <a href="https://user.qzone.qq.com/3079593805/myhome/friends/ofpmd?clickReport=searchMaybeKnow" class="result-list">
+                                    <div class="avatar"><i class="ui-icon icon-ts-qq"></i></div>
+                                    <div class="result-details">
+                                        <p class="info">可能认识的人</p>
+                                    </div>
+                                </a>
+                                <a href="https://user.qzone.qq.com/3079593805/myhome/217?clickReport=searchAuthenQzone" class="result-list" style="display:none;">
+                                    <div class="avatar"><i class="ui-icon icon-ts-approve"></i></div>
+                                    <div class="result-details">
+                                        <p class="info">认证空间</p>
+                                    </div>
+                                </a>
+                                <a href="https://rc.qzone.qq.com/appstore?via=qzonesearchbar&amp;clickReport=searchApp" class="result-list">
+                                    <div class="avatar"><i class="ui-icon icon-ts-app"></i></div>
+                                    <div class="result-details">
+                                        <p class="info">应用</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="smart-result-list" style="display:none"></div>
+                        </div>
+                        <a id="search_smart_search_more" class="search-for-friends" style="display:none" href="javascript:;">
+                            <span>查看更多</span><i class="more-icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                
+                <div class="music-container" id="tb_music_li">
+                    <div class="music-panel">
+                        <a class="music-play" href="javascript:;"><i class="ui-icon ico-music-stop"></i></a>
+                        <b class="music-dynamic"><i class="ui-icon ico-music-dynamic"></i></b>
+                    </div>
+                    
+                    <div id="tb_music_panel" class="music-drop-down" style="display:none;">
+                        <div class="drop-down-container">
+                            <div class="background-music">
+                                <i class="icon-qq-music"></i>
+                                <b>我的背景音乐</b>
+                                <div class="setting-box">
+                                    <a href="javascript:;" class="music-setting">设置</a>
+                                </div>
+                            </div>
+                            <div class="music-list">
+                                <div class="music-scroll-container">
+                                    <div style="top:0" class="music-choose">
+                                    </div>
+                                </div>
+                                <b class="scroll-bar-container">
+                                    <b style="top:0" class="scroll-bar"></b>
+                                </b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="vip-drop-down" id="tb_vip_panel" style="display:none;"><b class="white-line" data-type="normal"></b><div class="drop-down-setting"><a id="aPayBySelf" href="http://pay.qq.com/ipay/index.shtml?c=xxjzgw,xxjzghh&amp;ch=self&amp;cm=tenpay&amp;aid=zone.tbarshuang" target="_blank">升级年费</a><a id="aPayByFriend" href="javascript:;">向好友索取</a><a id="aPayToFriend" target="_blank" href="http://pay.qq.com/ipay/index.shtml?c=xxjzgw,xxjzghh&amp;ch=send&amp;aid=zone.tbar.send&amp;ADTAG=pay.service.qzone.send&amp;u=0">赠送给好友</a><a id="aVipHome" target="_blank" href="http://vip.qzone.com/?login=qq">黄钻官网</a></div></div>
+            </div>
+        </div>
+	</div>
+</div>
+
+
+<div class="background-container" id="layBackground">
+    <div class="layout-content" id="layPositionRoot">
+        
+        <div class="layout-head anti-color">
+            <div class="layout-head-inner" id="headContainer" style="background: no-repeat; height: 250px;">
+                
+                <div class="head-info">
+                    <h1 id="top_head_title" class="head-title">
+                        <span class="title-text ui-mr5">-</span>
+                        
+<a href="javascript:;" id="qz-head-level" class="qz-level-flag" onclick="window.QZONE &amp;&amp; QZONE.FP.toApp(&#39;/qzscore&#39;);window.TCISD &amp;&amp; window.TCISD.hotClick(&#39;point_ic_image&#39;, &#39;flower.qzone.qq.com&#39;);return false;">
+	<span class="qz_qzone_lv qz_qzone_lv_3 qz_qzone_no_2" title="当前空间等级：59级；积分：27678分"><span class="no"><b class="d5"></b><b class="d9"></b></span></span>
+</a>
+
+
+                         
+                            <span class="qz-app-flag wing-fly"><i class="ui-icon icon-qzphone"></i></span>  
+                         
+                    </h1>
+                    <div class="head-description">
+                        <span class="description-text">我热情有限 你好自为之 http://2890348601.qzone.qq.com</span>                       
+                    </div>
+                </div>
+                <div class="head-detail">
+                        <div class="head-detail-name">
+                            <span class="user-name textoverflow">Je t&amp;#39;aime.</span>
+                            
+                            
+                            
+                            
+                                <span class="user-vip-info">
+                                    
+                                </span>
+                            
+                        </div>
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="head-detail-info clearfix"><!-- 未开通黄钻的用户成长信息不可见 -->
+        <div class="detail-info-level">
+            <a id="diamon" data-year="" data-super="1" class="f_user_vip qz_ichotclick " target="_blank" href="http://pay.qq.com/ipay/index.shtml?n=12&amp;c=xxjzgw,xxjzghh&amp;aid=info.nickname&amp;ch=qdqb,kj" style="cursor:pointer;">
+            <i class="qz_vip_icon_l qz_vip_icon_fla_l_7"></i></a>
+        </div>
+        <div class="detail-info-con">
+           
+
+            
+                <div class="qz-progress-bar  ">
+                    <div class="progress-bar-info">
+                        <span class="txt-value">成长值<b class="count">8055</b></span><span class="txt-speed">成长速度<b class="count">35点/天</b></span>
+                    </div>
+                    <div class="progress-bar-panel">
+                        
+                        
+                        <div class="progress-bar-count" style="width:5%"><span class="count">5%</span></div>
+                    </div>
+                </div>
+            
+            
+        </div>
+        
+
+
+<div class="user-vip-info">
+    
+        
+            
+                <a class="qz-btn-vip qz-btn-vip-fee" title="续费黄钻" href="http://pay.qq.com/ipay/index.shtml?n=3&amp;c=xxjzgw,xxjzghh&amp;aid=info.nickname&amp;ch=qdqb,kj" target="_blank"></a>
+            
+        
+    
+
+    
+    
+        <a class="qz-btn-tips" href="javascript:void(0);" data-rel="vip_tips_btn" title="了解黄钻特权"></a>
+     
+    
+</div>
+    </div>
+
+                </div>
+                
+				
+    			<div class="actions profile-hd-actions" id="like_button_pannel">			
+
+                                    
+                    
+                     
+                
+
+                
+    			
+                
+    				
+    			
+                    <a href="javascript:;" class="btn-head" id="add_specialcare">
+                        <s class="ui-icon icon_add_care "></s>
+                        <span class="txt">特别关心</span>
+                    </a>
+                    <div class="btn-head btn-head-like" id="like" title="0人赞过">
+                        <a href="javascript:void(0)" class="j-like lnk-left">
+                            <s class="ui-icon sp-btn-like"></s>
+                            <span class="txt"><span id="like_already" style="display:none;">已</span>赞</span>
+                        </a>
+                        <s class="ui-icon sp-btn-split"></s>
+                        <a href="javascript:void(0)" class="j-like-count lnk-right">
+                            <span class="txt" id="like_number">0</span>
+                        </a>
+                        <div class="j-vip-look-all ui-dialog ui-light-dialog ui-light-dialog-s ui-popover ui-popover-bottom-right zan-dialog-tip-wrap none" style="position:absolute; top:-79px; left:4px;">
+                            <div class="ui-dl-inner">
+                                <b class="ui-dl-arrow ui-dl-arrow1"></b>
+                                <b class="ui-dl-arrow ui-dl-arrow2"></b>
+                                <div class="ui-dl-bd">
+                                    <p>黄钻用户可查看全部点赞列表呦</p>
+                                </div>
+                                <div class="ui-dl-ft">          
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    			
+    			</div>
+				
+				
+                
+                <!--挂件-->
+                <div class="layout-shop-item" id="QZ_Shop_Items_Container" style="z-index: 101;">
+                    
+
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+		
+		
+	
+	
+	
+		<div class="shop-item cs" id="menuContainer" style="width: px; height: 32px; left: 150px; top: 252px; " reged="1"><div class="head-nav"><ul class="head-nav-menu"><li class="menu_item_N1"><span class="arr"></span><a href="javascript:;" title="主页" tabindex="1" accesskey="z">主页</a></li><li class="menu_item_2"><span class="arr"></span><a href="javascript:;" title="日志" tabindex="1" accesskey="r">日志</a></li><li class="menu_item_4"><span class="arr"></span><a href="javascript:;" title="相册" tabindex="1" accesskey="4">相册</a></li><li class="menu_item_334"><span class="arr"></span><a href="javascript:;" title="留言板" tabindex="1">留言板</a></li><li class="menu_item_311"><span class="arr"></span><a href="javascript:;" title="说说" tabindex="1" accesskey="6">说说</a></li><li class="menu_item_1"><span class="arr"></span><a href="javascript:;" title="个人档" tabindex="1" accesskey="1">个人档</a></li><li class="menu_item_305"><span class="arr"></span><a href="javascript:;" title="音乐" tabindex="1">音乐</a></li><li class="menu_item_more"><span class="arr"></span><a href="javascript:;" title="更多" tabindex="1">更多</a></li></ul></div></div>
+	
+
+
+                </div>
+            <div id="flowerContainerDiv" class="layout-shop-item"></div></div>
+        </div>
+
+        <div class="layout-nav" id="navContainer">
+            <div class="layout-nav-inner">
+                <div class="head-avatar">
+                    
+                        <div class="head-dress"></div>
+                        <img src="./static/100" class="user-avatar" id="QM_OwnerInfo_Icon" alt="头像">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="layout-background">
+            
+            <div class="layout-body">
+                
+                <div class="lay_lace_t"></div>
+                    <div class="lay_lace_m">      
+                        
+                        <div id="pageContent" class="qz-grid body-grid">
+                            <div class="qz-left profile-left">
+                                <div class="mod-profile-headline" id="profile-head"><div class="inner"><div class="bd"><ul class="stats-list clearfix"><li class="first"><a id="QM_Profile_Photo_A" href="javascript:;"><strong id="QM_Profile_Photo_Cnt">4643</strong><span>照片</span></a></li><li><a id="QM_Profile_Mood_A" href="javascript:;"><strong id="QM_Profile_Mood_Cnt">207</strong><span>说说</span></a></li><li><a id="QM_Profile_Blog_A" href="javascript:;"><strong id="QM_Profile_Blog_Cnt">0</strong><span>日志</span></a></li></ul></div></div><b class="bottom"></b></div><div class="mod-profile mod-profile-detail" id="profile-detail"><div class="inner"><div class="hd"><h3><a href="javascript:">个人档</a></h3></div><div class="bd"><ul class="detail-list"> <li class="qz-grid"><div class="qz-left"><i class="ui-icon sp-detail-doc"></i></div><div class="qz-main"><h4>我热情有限 你好自为之</h4></div></li><li class="qz-grid"><div class="qz-left"><i class="ui-icon sp-detail-avatar"></i></div><div class="qz-main"><h4></h4></div></li><li class="qz-grid"><div class="qz-main"><a href="javascript:;">查看详细资料</a></div></li></ul></div></div><b class="bottom"></b></div><div class="mod-profile mod-profile-detail mod-leave-msg-board" style=""><div class="inner">
+		<div class="hd"><h3><a href="https://rc.qzone.qq.com/msgboard" target="_blank" data-rel="to_app" data-role="button">留言板</a></h3></div>
+		<div class="bd">
+			<div class="leave-msg-board">
+				<div class="input-box">
+					<b class="qz-input">
+						<b class="qz-input-inner">
+							<textarea class="qz-scrollbar placeholder" data-role="inputer">我也留个言吧</textarea>
+						</b>
+					</b>
+					<div class="qz-poster" style="display:none;"></div>
+					<div class="actions-bar">
+						<div class="qz-grid">
+							<div class="qz-left">
+								<a href="javascript:void(0)" data-role="button" data-rel="show_emot_panel" class="emot"><i class="ui-icon icon-emot"></i></a>
+							</div>
+							<div class="qz-right">
+								<span class="select">
+									<span class="ui-checkbox ui-checkbox-tint">
+										<input data-role="button" data-rel="secret" type="checkbox" id="msgboard_module_secret">
+										<label data-role="button" data-rel="secret">私密留言<i class="ui-icon icon-diamond"></i></label>
+									</span>
+									
+									
+								</span>
+								<a class="qz-button qz-dark-button qz-button-s" href="javascript:void(0);" data-role="button" data-rel="submit"><span class="txt">发表</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul class="msg-list"><li class="item">
+	<p class="msg-content">		<a href="https://user.qzone.qq.com/2962129860" target="_blank" class="user-name">.</a>
+		：我比流言蜚语更早认识你，我会一直在你身边，爱你么么		</p>
+	<p class="msg-info">2021-12-11 17:21:28		</p>
+</li><li class="item">
+	<p class="msg-content">		<a href="https://user.qzone.qq.com/2668176230" target="_blank" class="user-name">CHOSENⅠ.</a>
+		：笨蛋		</p>
+	<p class="msg-info">2020-08-26 18:12:06		</p>
+</li><li class="item">
+	<p class="msg-content">		<a href="https://user.qzone.qq.com/2668176230" target="_blank" class="user-name">CHOSENⅠ.</a>
+		：猴哥牛逼<img src="./static/e271@2x.gif">		</p>
+	<p class="msg-info">2020-08-10 02:30:08		</p>
+</li>				</ul>
+			</div>
+			<div class="more">
+				<a href="javascript:void(0);" data-rel="to_app" data-role="button">查看更多留言</a>
+
+			</div>
+		</div>
+	</div>
+	<b class="bottom"></b></div>
+                                
+                            </div>
+                            <div class="qz-main profile-main">
+                                
+
+
+    
+
+
+                                
+
+
+
+
+	
+	
+
+
+
+<div class="fn_feedContainer" id="QM_Feeds_Container">
+	
+		
+	
+	
+
+	<!--[if IE]><iframe allowfullscreen title="主人动态内容区" id="QM_Feeds_Iframe" width="100%" height="1400" frameBorder="0" scrolling="no" allowtransparency="true" src="//user.qzone.qq.com/proxy/domain/ic2.qzone.qq.com/cgi-bin/feeds/feeds_html_module?g_iframeUser=1&amp;i_uin=2890348601&amp;i_login_uin=3079593805&amp;mode=4&amp;previewV8=1&amp;style=35&amp;version=8&amp;needDelOpr=true&amp;transparence=true&amp;hideExtend=false&amp;showcount=5&amp;MORE_FEEDS_CGI=http%3A%2F%2Fic2.qzone.qq.com%2Fcgi-bin%2Ffeeds%2Ffeeds_html_act_all&amp;refer=2&amp;paramstring=os-winxp|100"></iframe><![endif]-->
+	<!--[if !(IE)]><!--><iframe allowfullscreen="" title="主人动态内容区" id="QM_Feeds_Iframe" style="width:100%;border-width:0;overflow:hidden;" height="191868" src="./static/feeds_html_module.html"></iframe><!--<![endif]-->
+	<div class="noData ui_mb10 bgr3 c_tx3 none" id="QM_Feeds_Default_View"></div>
+</div>
+
+<script>
+	var qmFeedsIrameSrc = document.getElementById('QM_Feeds_Iframe').src;
+	if(location.hostname != 'rc.qzone.qq.com') {
+		document.getElementById('QM_Feeds_Iframe').src = qmFeedsIrameSrc.replace('user.qzone.qq.com', location.hostname);
+	}
+</script>
+
+                            </div>
+                        </div>
+                        
+                        
+                        <div id="pageApp" class="layout-app mod_wrap none">
+                            <div class="mod_wrap_inner">
+                                <div class="mod_wrap_bd">
+                                    <div class="mod_wrap_iframe" id="app_container" style="min-height:435px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="page3rdApp" class="layout-app none" style="min-height:450px;"></div>
+                    </div>
+                <div class="lay_lace_b"></div>
+            </div>
+            <div class="layout-copyright">
+	<p><a href="http://z.qzone.com/" onclick="TCISD &amp;&amp; TCISD.hotClick(&#39;bottomqzoneapp&#39;, &#39;user.qzone.com&#39;)" target="_blank">空间手机版</a> | <a href="http://vip.qzone.com/" onclick="TCISD &amp;&amp; TCISD.hotClick(&#39;threefromendofpage&#39;, &#39;guangxi.vip.qzone.com&#39;, &#39;main&#39;)" target="_blank">黄钻贵族</a> | <a href="http://user.qzone.qq.com/20050606" target="_blank">官方Qzone</a> | <a href="http://connect.qq.com/" target="_blank">QQ互联</a> | <a href="https://ke.qq.com/?from=176937" target="_blank">腾讯课堂</a> | <a href="https://docs.qq.com/?adtag=QQkongjian" target="_blank">腾讯文档</a> | <a href="http://service.qq.com/special_auto/qzone.html" target="_blank">腾讯客服</a> | <a href="http://qzone.qq.com/web/tk.html" target="_blank">QQ空间服务协议</a> | <a href="http://wiki.open.qq.com/wiki/Tencent_Open_Platform_Complaint_Guidelines" target="_blank">Complaint Guidelines</a> | <a href="http://www.qq.com/culture.shtml" target="_blank">粤网文[2017]6138-1456号</a></p>
+	<p>Copyright © 2005 - 2023 Tencent.<a href="http://www.tencent.com/en-us/le/copyrightstatement.shtml" target="_blank">All Rights Reserved.</a></p>
+	<p>腾讯公司 <a href="http://www.tencent.com/zh-cn/le/copyrightstatement.shtml" target="_blank">版权所有</a></p>
+</div>
+        </div>
+    </div>
+    
+</div>
+<div class="fix-layout">    <div class="gb-operation-area" id="_returnTop_layout_inner">        <a href="javascript:;" id="goto_top_btn" class="gb-operation-button return-top">            <i class="gb-operation-icon" title="返回顶部"></i>            <span class="gb-operation-text">顶部</span>        </a>    <a href="javascript:;" class="gb-operation-button report" id="" style="display: block;"><span class="gb-operation-text" style="display: block;">举报</span></a></div></div>
+<div id="QZ_Float_Items_Container" class="lay-shop-item-fixed"></div>
+<script type="text/javascript">
+g_T.fwp[4] = new Date();var g_V={qz:'_v8_2.1.65',jq:'1.10.2',sea:'2.1.1',fp:'60628',ic:'80206',popcss:'?d=140918103710',delay:'-yoo190131143813',req:'61221'};
+
+
+var g_ISP={p:"255",
+i:"-1",
+f:"1",
+c:'240e:363:a826:a00:e043:e73:6bba:e7e7'},
+g_type="M",
+g_Set="",
+g_ICSet="",
+g_SPrefix="",
+g_SPrefix_Server="",
+g_DPrefix="",
+g_dns_name="",
+g_UserBitmap="08009c80160e4201",
+g_LoginBitmap="08009c8002024001",
+g_UserunimBitmap="0000008880000003",
+g_LoginUnimBitmap="00000080c0000302",
+g_UserVipStarBitmap="1100020118000c00",
+g_LoginVipStarBitmap="0000000110000800",
+g_Bitmap_3rd="0000000000000800",
+g_IZone_Flag=+"1",
+g_diyTitle="",
+g_SceneID=+"9",
+g_neatstyle=0,
+g_7DDressNo=0,
+g_StyleID="35",
+g_DefaultStyleID="35",
+g_fullMode=6,
+g_Mode="gfp_default",
+g_frameStyle=1,
+g_version=8,
+g_isFriend=1,
+g_isSpecialCare='0',
+g_NowTime=1678878204,
+g_StaticFlag="0",
+g_isDirectApp=0,
+ownermode=(g_iLoginUin==g_iUin),
+ownerProfileSummary=["Je t\x27aime.",
+                    0,
+                    0,
+                    "@@",
+                    "-",
+                    "我热情有限 你好自为之",
+                    "0-0-0",
+                    "0008040060748800"],
+g_isOFP="0",
+g_isHideTitle="0",
+g_icLayout="0",
+g_isFromPengYou="", 
+g_isBrandQzone="",
+g_isFamousQzone="",
+g_xwMode="",
+g_needDec=1,
+g_isFastPav=1,
+g_scenarioidle="0",
+g_isBGScroll=0,
+g_TransparentLevel=0,
+
+g_Dressup={items:[{type:1,itemno:94786,posx:0,posy:0,posz:0,height:0,width:0,flag:222},{type:91,itemno:94914,posx:0,posy:0,posz:0,height:0,width:0,flag:0} ],windows:[{appid:4,mode:0,posx:2,posy:0,posz:0,height:0,width:0,wndid:0},{appid:2,mode:0,posx:2,posy:1,posz:0,height:0,width:0,wndid:0},{appid:333,mode:0,posx:2,posy:2,posz:0,height:0,width:0,wndid:0},{appid:218,mode:0,posx:2,posy:3,posz:0,height:0,width:0,wndid:0},{appid:847,mode:0,posx:2,posy:4,posz:0,height:0,width:0,wndid:0}]},
+
+g_isLite=0,
+g_SeoAppId='0',
+g_isLikable=+'1',
+g_likedNumber=+'0',
+g_supportWebp=+'1',
+g_yPos=+'',
+g_portraitTime=+'1674971663',
+g_loginPortraitTime = + '1617552751', 
+g_OSClass="os-winxp",
+g_applistWallNum = parseInt("" || "0",10), 
+g_isStarVip = +"0",
+g_isStarVipYear = +"0",
+g_iStarVipLevel = +"0",
+
+
+g_iEmoji=[],
+g_PreData={app:{
+                ret:99999,
+                data:{},
+                flag:1
+                },
+            flower:{
+                ret:0,
+                score:+"27678",
+                gardener:+"59"},
+            qbossData:{
+                
+            },
+            hat:{ret:-1,
+                id:+""
+                }
+            },
+g_app_identifier='', 
+
+qlogoDomain="store.qq.com",
+
+g_starstamp_pic = +'',
+g_starstamp_emotion = +'',
+g_userProfile = {"uin":+"2890348601",
+    "nickname":"Je t&#39;aime.",
+    "spacename":"-",
+    "desc":"我热情有限 你好自为之",
+    "signature":"-",
+    "avatar":"",
+    "sex_type":+"0",
+    "sex":+"0",
+    "animalsign_type":+"0",
+    "animalsign":+"9",
+    "constellation_type":+"0",
+    "constellation":+"-1",
+    "age_type":+"0",
+    "age":+"0",
+    "islunar":+"0",
+    "birthday_type":+"0",
+    "birthyear":+"0",
+    "birthday":"00-00",
+    "bloodtype":+"0",
+    "address_type":+"0",
+    "country":"",
+    "province":"",
+    "city":"",
+    "home_type":+"0",
+    "hco":"",
+    "hp":"",
+    "hc":"",
+    "marriage":+"0",
+    "lover":"",
+    "career":"-",
+    "company":"",
+    "compaddr_type":+"0",
+    "cco":"",
+    "cp":"",
+    "cc":"",
+    "cb":"-",
+    "mailname":"",
+    "mailcellphone":"",
+    "mailaddr":"",
+    "like_number":+"0"
+    },
+g_likeable_today=+"1",
+g_moreModules=["v8/dress/otherview_v8","v8/core/state"],
+g_diffModules={
+     'engine' : "_ex"
+    },
+g_photowall = [];
+
+g_photowall_urls = {
+    'filekey':'',
+    'ctime':'0',
+    'ourl':'',
+    'murl':'',
+    'surl':'',
+    'burl':''
+};
+G_Param={};
+G_Param.qz_referrer='';
+
+g_weather={};
+
+g_weather['save']={
+    'country':'中国',
+    'province':'河南',
+    'city':'商丘',
+    'temp':'10',
+    'weather':'多云',
+    'day':'',
+    'pm2d5':'21'
+    };
+
+var g_blog_loc_prefix='';
+var g_BLOG_LOCATION_PREFIX='b', g_BLOG_LOCATION_LOGIN_PREFIX='b';
+
+
+
+(function(){
+    var ua = {}, agent = navigator.userAgent;
+    if(window.ActiveXObject || window.msIsStaticHTML){
+        ua.ie = 6;
+        (window.XMLHttpRequest || (agent.indexOf('MSIE 7.0') > -1)) && (ua.ie = 7); 
+        (window.XDomainRequest || (agent.indexOf('Trident/4.0') > -1)) && (ua.ie = 8); 
+        (agent.indexOf('Trident/5.0') > -1) && (ua.ie = 9); 
+        (agent.indexOf('Trident/6.0') > -1) && (ua.ie = 10); 
+        (agent.indexOf('Trident/7.0') > -1) && (ua.ie = 11);
+        
+        if(ua.ie == 6 || ua.ie == 7 || ua.ie == 8){
+            g_V.jq='1.10.2';
+        }
+    }
+})();
+
+(function(){
+    function pingTrace(type){
+        var url = 'http://p1.qzone.qq.com/fcg-bin/fcg_pu_report',
+            data = {
+                biz:window.g_iUin,
+                qq:window.g_iLoginUin,
+                type:type,
+                refer:document.referrer
+            };
+        $j.jsonGet && $j.jsonGet(url,data,function(o){});
+    }
+
+    var cnt = 0;
+
+    function _report(){
+        if(window.QZONE && window.QZONE.FrontPage && window.QZONE.FrontPage.isInteractZone && $j && $j.jsonGet){
+             if(window.g_Mode == "gfp_pro" && QZONE.FrontPage.isInteractZone() && location.href.indexOf('qz_gdt=')>-1){
+                pingTrace(5);
+            }
+        }else{
+            if(cnt++ < 10){
+                 setTimeout(arguments.callee, 1000);
+            }
+        }
+    }
+
+    setTimeout(_report, 1000);
+})();
+
+
+
+
+</script>
+<script type="text/javascript" src="./static/qzfl_v8_2.1.65.js.download"></script>
+<script type="text/javascript" src="./static/sea-2.1.1.js.download"></script>
+<script type="text/javascript" src="./static/seajs_config.js.download"></script>
+<script type="text/javascript" src="./static/index.js.download"></script>
+
+<script type="text/javascript">
+(function(){
+    
+   if(!window.QZFL){
+        return;
+   }
+   var sslInfo = QZFL.cookie.get('x-stgw-ssl-info');
+   if(!sslInfo){
+        return;
+   }
+    var frags = sslInfo.split('|');
+    var isSessionReused = frags[4] == 'r';
+    var connectionNum = parseInt(frags[3] || '0',10);
+    if(window.g_iLoginUin%10 !=3){
+        //不用全部看
+        return;
+    }
+
+    if(connectionNum==1 && !ua.chrome){
+        window.haboStat && window.haboStat({
+            commandid : 'first_screen_ssl_session_reused',
+            stime : 1000, 
+            resultcode : isSessionReused ? 0 : 1,
+            touin : window.g_iLoginUin || 0,
+            frequency :  1
+        });
+    }
+    
+})();
+
+
+(function(){var _i=new Image(),_r=Math.random(),_re = new RegExp("(?:^|;+|\\s+)_qz_fix=([^;]*)"),m=document.cookie.match(_re),_v=!m ?"":m[1],_ph='//pinghot.qq.com/pingd?dm=homeact.qzone.qq.com.hot&url=/troubleshooter&tt=-&hottag=guanjia.qzonestyle.',_phe='&hotx=9999&hoty=9999&rand='+_r;_i.onerror=function(){var _t=new Image();if(_v>0){document.getElementById('trs_tip').innerHTML='如果您看到这个提示，说明QQ空间仍然无法正常打开，请您返回空间小助手，进行<a href="http://user.qzone.qq.com/troubleshooter#secondfix" title="空间小助手"><strong>深度修复</strong></a>';_t.src=_ph+'badagain'+_phe;}else{_t.src=_ph+'bad'+_phe;}var _d = document.createElement("div");_d.innerHTML = '<iframe frameborder="0" style="width:1px;height:1px;" src="http://user.qzone.qq.com/troubleshooter?traytip"></iframe>';document.body.appendChild(_d);};_i.onload=function(){if(_v==2){var _t=new Image();_t.src=_ph+'fixed'+_phe;}};_i.src='//'+siDomain+'/ac/qzone_v5/client/year_vip_icon.png?i='+_r;})();
+QZFL.event.onDomReady(function(){
+    g_T.fwp[3] = new Date();
+});
+    
+    
+
+    var fsimg = document.getElementById("full_background_img");
+    if(fsimg){
+        window.adjust_full_screen_skin = function(){
+            var bg = document.getElementById('full_background'),
+                    bg_img=document.getElementById('full_background_img'),
+                    cw = QZFL.dom.getClientWidth(),
+                    ch = QZFL.dom.getClientHeight(),
+                    iw = bg_img.width,
+                    ih = bg_img.height;
+
+                bg.style.width=cw+"px";
+                bg.style.height=ch+"px";
+
+                if (cw / ch > iw / ih) {
+                    var new_h = cw * ih / iw,
+                        imgTop = (ch - new_h) / 2;
+                    bg_img.style.width=cw + "px";
+                    bg_img.style.height=new_h + "px";
+                    bg_img.style.top="";
+                    bg_img.style.left="";
+                }else {
+                    var new_w = ch * iw / ih,
+                        imgLeft = (cw - new_w) / 2;
+                    bg_img.style.width=new_w + "px";
+                    bg_img.style.height=ch + "px";
+                    bg_img.style.left=imgLeft + "px";
+                    bg_img.style.top="";
+                }
+        };
+        if (!QZONE.shop || !QZONE.shop.initDressUp) {
+            var url = fsimg.getAttribute("data-src");
+            fsimg.onload = adjust_full_screen_skin;
+            fsimg.src = url;
+        }
+    }
+    
+    var mc = document.getElementById('menuContainer');
+    var oldGuideMap = {
+        N2: "myhome",
+        3: "305",
+        5: "4",
+        6: "306",
+        7: "1",
+        8: "3",
+        10: "311",
+        11: "323",
+        13: "338",
+        14: "myhome",
+        15: "yellowgrade",
+        17: "333",
+        18: "340"
+    };
+    var isDefaultMenu = '' == 1,
+        isCustom = '' & 2 > 0,
+        isMobile = (window.ua && (ua.isiPhone || ua.isiPad)),
+        lst;
+    window.getHotTagPrefix = function(){
+            var env = window.g_app_identifier != "" ? 'app' : (window.g_isOFP == "0" ? 'home' : 'center');
+
+            return env + 'click' +  (window.ownermode ? "-host" : "-guest");
+        };
+    window.custom_menu_swf = function(id) {
+        if(QZFL.userAgent.chrome || QZFL.userAgent.safari){
+            var _cbi = document.getElementById('_chrome_bug_input');
+            if(!_cbi){
+                var _laybg = document.getElementById('layBackground');
+                QZFL.dom.createElementIn("input",_laybg,false,{id:"_chrome_bug_input",type:'text',style:"border:1px;width:1px;position:absolute;left:-10px;"});
+                _cbi =  document.getElementById('_chrome_bug_input');
+            }
+            _cbi.focus();
+        }
+        
+        if (id != 'close') {
+            id = (!isCustom && !isDefaultMenu && !isMobile) ? (oldGuideMap[id] || id) : id;
+            if(id == "-1" || id == "N1"){
+                id = "main";
+            }
+            if (id == '5' || id == '7') {
+                id = oldGuideMap[id];
+            }
+            var _p = getHotTagPrefix();
+            window.TCISD && TCISD.hotClick("menu_v8."+_p+".appid_"+id, "8.qzone.qq.com");
+            if(id == '219'){
+                if(QZONE.music && typeof(QZONE.music.switchPage)=="function"){
+                    QZONE.music.switchPage();
+                }
+            }else{
+                if(QZONE.FrontPage && QZONE.FrontPage.toApp) {
+                    QZONE.FrontPage.toApp("/" + id);  
+                }              
+            }
+        }
+        return false;
+    };
+    if (!QZONE.shop || !QZONE.shop.initDressUp) {
+        mc && QZFL.event.delegate(mc, 'li', 'click', function (e) {
+            QZFL.event.preventDefault(e);
+            this.className = this.className.replace(/_\-1/, '_N1');
+            var appid = this.className.match(/menu_item_([A-Z0-9\-]*)/i);
+            appid && appid[1] && custom_menu_swf(appid[1]);
+            if (lst) {
+                QZFL.css.removeClassName(lst, 'cur');
+            }
+            lst = this;
+            QZFL.css.addClassName(lst, 'cur');
+        });
+        mc && mc.setAttribute('reged', '1');
+    }
+
+(function(){try{if(parent!=self && (parent.document.domain!=document.domain || (document.referrer && !/^http(s)?:\/\/[.\w-]+\.qq\.com\//i.test(document.referrer)))){throw new Error("can't be iframed");}}catch(e){window.open(location.href, "_top");}})();
+    /**
+     * β 增加新接口 获取通过URL传递的参数值
+     * @param {String} name 参数的名称
+     */
+    var getParameter = function(url, name){
+        var r = new RegExp("(\\?|#|&)" + name + "=([^&#]*)(&|#|$)"),
+            m = url.match(r);
+        return (!m ? "" : m[2]);
+    };
+    //上报用iframe嵌套qzone的用户
+    var qq = getParameter(location.href, 'qzoneInIframe');
+    if(qq) {
+        TCISD.stringStat(1000100, {
+                bid: 108146,
+                rc: 'QQ:' + qq
+        }, {
+            reportRate: 1
+        });
+    }
+    var clickReport = getParameter(location.href, 'clickReport');
+    if(window.TCISD && window.TCISD.pv) {
+        TCISD.pv('user.qzone.qq.com', clickReport);
+    }
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+/**
+ * 框架机模调上报
+ */
+var reportMd = function (code, type, delay) {
+	//使用模调测速
+	var url = "//h5.qzone.qq.com/report/md?"
+		+ "fromId=204971707&toId=211006088&interfaceId=111900240"
+		+ (typeof code == 'undefined' ? '' : ("&code=" + code))
+		+ (typeof type == 'undefined' ? '' : ("&type=" + type))
+		+ (typeof delay == 'undefined' ? '' : ("&delay=" + Math.min(delay, 10 * 1000)))
+		+ '&r=' + Math.random();
+	var img = new Image();
+	img.src = url;
+};
+
+reportMd(0, 0, 1);
+
+/**
+ * websocket支持度统计上报
+ */
+var url = "https://h5.qzone.qq.com/report/md?"
++ "fromId=204971724&toId=204971725&refer=lovezone&interfaceId="
++ '104985283' + "&code=" + (window.WebSocket ? 0 : 1)
++ "&type=0"
++ '&r=' + Math.random();
+var img = new Image();
+img.src = url;
+</script>
+
+<script src="./static/iframeReport.js.download"></script>
+
+
+<iframe id="userData_iframe___share_db" src="./static/storage_helper.html" style="display: none;"></iframe><div tabindex="-1" style="position: fixed; inset: 265px auto auto 629px; margin: 0px; padding: 0px; outline: 0px; border: 0px none; background: transparent; z-index: 10000; display: none;" class="ui-popup" role="dialog"><div class="qz-tips-box qz-tips-box-m"><div class="tips-box-txt tips-info"><i class="icon-info-m"></i>Invalid right</div></div></div></body></html>

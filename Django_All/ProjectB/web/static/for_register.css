@@ -1,0 +1,26 @@
+/*p {*/
+/*    font-size: x-large;*/
+/*    color: aliceblue;*/
+/*    font-family: "楷体","楷体_GB2312";*/
+
+
+/*}*/
+/*label {*/
+/*    color: red;*/
+/*    left: auto;*/
+/*}*/
+
+/*input {*/
+/*    font-size: x-large;*/
+/*    font-family: "楷体","楷体_GB2312";*/
+/*    position: absolute;*/
+/*    left: 600px;*/
+/*}*/
+html {
+    background-image: url("https://img.pantabang.top/zyjsq/background.png");
+    text-align: center;
+    font-family: "楷体","楷体_GB2312";
+    font-size: x-large;
+    color: aliceblue;
+
+}
