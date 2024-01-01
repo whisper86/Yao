@@ -13,6 +13,8 @@ def read_eval_print_loop():
         except KeyboardInterrupt:  # <Ctrl-C>
             print()
             print("KeyboardInterrupt")
+            exit()
+            
         except EOFError:  # <Ctrl-D>
             print()
             return

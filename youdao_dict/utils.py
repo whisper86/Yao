@@ -11,7 +11,7 @@ import urllib
 import requests
 from lxml import html
 
-from . import spellcheck
+import spellcheck
 
 try:
     import vlc
@@ -95,7 +95,7 @@ def translate(source):
         print(", ".join(corrs))
 
     print("=" * 49)
-    play_voice(source)
+    play_voice(source,2, 'pyttsx3')
 
 
 #######################
