@@ -4,17 +4,17 @@
 
 Download | Clone link: 
 
-https: https://github.com/whisper86/Yao.git
+HTTPS: https://github.com/whisper86/Yao.git
 
-ssh: git@github.com:whisper86/Yao.git
+SSH: git@github.com:whisper86/Yao.git
 
 #### Introduce
 
-**06_06work** : While everyone else is taking the college entrance exam, i created this floder, it includes ***Machine Learning***, because of the film Titanic, i am intersting of Machine Learning all of a suddern, but in fact, this floder is a copy of others project
+**06_06work** : While everyone else is taking the college entrance exam, i created this folder, it includes ***Machine Learning***, because of the film Titanic, i am interested in Machine Learning all of a sudden, but in fact, this folder is a copy of others project
 
 **Spider**:
 
-<img src="File_Tree.png" alt="File_Tree" style="zoom:150%;" />
+![Spider](https://www.freeimg.cn/i/2024/01/14/65a3270d7261e.png)
 
 #### Attach
 
